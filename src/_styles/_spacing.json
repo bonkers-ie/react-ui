@@ -1,0 +1,16 @@
+{
+	"auto": "var(--auto)",
+	"0": "var(--zero)",
+	"min": "var(--min)",
+	"xxxs": "var(--xxxs)",
+	"xxs": "var(--xxs)",
+	"xs": "var(--xs)",
+	"sm": "var(--sm)",
+	"md": "var(--md)",
+	"lg": "var(--lg)",
+	"xl": "var(--xl)",
+	"xxl": "var(--xxl)",
+	"xxxl": "var(--xxxl)",
+	"xxxxl": "var(--xxxxl)",
+	"xxxxxl": "var(--xxxxxl)"
+}

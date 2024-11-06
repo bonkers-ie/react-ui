@@ -1,0 +1,10 @@
+{
+	"min": "var(--backdrop-blur-min)",
+	"xs":"var(--backdrop-blur-xs)",
+	"sm":"var(--backdrop-blur-sm)",
+	"blur": "var(--backdrop-blur)",
+	"md":"var(--backdrop-blur-md)",
+	"lg":"var(--backdrop-blur-lg)",
+	"xl":"var(--backdrop-blur-xl)",
+	"2xl":"var(--backdrop-blur-2xl)"
+}
