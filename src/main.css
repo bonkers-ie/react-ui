@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* text */
+    --base-line-height: 1.6;
+    --base-font: museo-sans, sans-serif;
+  }
+}
+
+body {
+  font-family: var(--base-font);
+}
+
+*:focus,
+*:active {
+  outline: none;
+}
+
+input,
+textarea,
+button,
+select,
+label,
+a {
+  -webkit-tap-highlight-color: transparent;
+}

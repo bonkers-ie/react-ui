@@ -1,8 +1,7 @@
-import type { Config } from 'tailwindcss';
-import { defineConfig } from 'vite';
-import config from './.storybook/main';
+import bonkersPlugin from "./plugin";
+import { Config } from 'tailwindcss';
 
-module.exports = {
+const config = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
@@ -10,7 +9,7 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    defineConfig,
+    bonkersPlugin,
   ],
-}
+} satisfies Config;
 export default config;

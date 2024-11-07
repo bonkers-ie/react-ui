@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { EColors } from './_types/colors';
 
 import { Button } from './Button';
 
@@ -32,33 +31,3 @@ export const Primary: Story = {
     label: 'Button',
   },
 };
-
-export const Secondary: Story = {
-  args: {
-    label: 'Button',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'large',
-    label: 'Button',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'small',
-    label: 'Button',
-  },
-};
-
-export const Back: Story = {
-  args: {
-    backgroundColor: EColors.PRIMARY_ALT_500,
-    label: 'Back',
-    onClick: fn(() => window.history.back()),
-    size: 'small',
-  },
-};
-
