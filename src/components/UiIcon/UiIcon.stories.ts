@@ -2,7 +2,7 @@ import { UiIcon } from "../UiIcon/UiIcon";
 import type { Meta, StoryObj } from "@storybook/react";
 import { ESize } from "../../_types/sizing.js";
 
-const meta = {
+const meta: Meta<typeof UiIcon> = {
     title: "Components/UiIcon",
     component: UiIcon,
     argTypes: {
@@ -25,6 +25,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        iconName: ["far", "face-smile"],
+        name: ["far", "face-smile"],
     },
 };

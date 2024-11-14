@@ -1,15 +1,15 @@
 import React from "react";
 import { ESize } from "../../_types/sizing";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconName } from "@fortawesome/fontawesome-svg-core";
-import { faSmile } from "@fortawesome/free-solid-svg-icons";
+import  cx  from "classnames";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface UiIconProps {
-    name: IconName;
+    name: IconProp;
     size?: ESize;
 }
 
-const sizeToClassName = {
+const sizeToClassName: { [key in ESize]: string } = {
   [ESize.XXXS]: "size-xxxs",
   [ESize.XXS]: "size-xxs",
   [ESize.XS]: "size-xs",
@@ -25,16 +25,13 @@ const sizeToClassName = {
   [ESize.ZERO]: "size-zero",
 } as const;
 
-const getSizeClass = (size: ESize) => sizeToClassName[size] || "";
-
 export const UiIcon = (props: UiIconProps) => {
     const { size = ESize.LG } = props;
-    const sizeClass = getSizeClass(size);
 
     return (
       <FontAwesomeIcon
-        icon={faSmile}
-        className={sizeClass}
+        icon={props.name}
+        className={cx(sizeToClassName[size])}
 
       />
     );
