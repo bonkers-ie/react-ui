@@ -1,12 +1,12 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import { UiButton } from "./UiButton";
-import { EButtonSizes, EButtonTypes } from './_typings';
+import { EButtonSizes, EButtonTypes } from "./_typings";
 
 const meta = {
-    title: 'Components/UiButton',
+    title: "Components/UiButton",
     component: UiButton,
     parameters: {
-        layout: 'centered',
+        layout: "centered",
         controls: { expanded: true }
     },
     args: {
@@ -18,29 +18,29 @@ const meta = {
     argTypes: {
         kind: {
             control: {
-                type: 'select'
+                type: "select"
             },
             options: Object.values(EButtonTypes),
-            description: 'Button Type',
+            description: "Button Type",
         },
         size: {
             control: {
-                type: 'select'
+                type: "select"
             },
             options: Object.values(EButtonSizes),
-            description: 'Button Size',
+            description: "Button Size",
         },
         fullWidth: {
             control: {
-                type: 'boolean',
+                type: "boolean",
             },
-            description: 'Button Width Full',
+            description: "Button Width Full",
         },
         disabled: {
             control: {
-                type: 'boolean',
+                type: "boolean",
             },
-            description: 'Button Disabled',
+            description: "Button Disabled",
         },
     },
 } satisfies Meta<typeof UiButton>;
@@ -52,39 +52,32 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
     args: {
         kind: EButtonTypes.PRIMARY,
-        children: 'Primary Button',
-    },
-};
-
-export const Secondary: Story = {
-    args: {
-        kind: EButtonTypes.SECONDARY,
-        children: 'Secondary Button',
+        children: "Primary Button",
     },
 };
 
 export const ButtonVariants: Story = {
     args: {
-        children: 'Button',
+        children: "Button",
     },
     argTypes: {
         kind: {
             control: {
-                type: 'select',
+                type: "select",
                 options: Object.values(EButtonTypes),
             },
         },
         size: {
             control: {
-                type: 'select',
+                type: "select",
                 options: Object.values(EButtonSizes),
             },
         },
         fullWidth: {
-            control: 'boolean',
+            control: "boolean",
         },
         disabled: {
-            control: 'boolean',
+            control: "boolean",
         },
     },
 };
