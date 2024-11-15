@@ -6,7 +6,6 @@ const meta = {
     title: "Components/UiButton",
     component: UiButton,
     parameters: {
-        layout: "centered",
         controls: { expanded: true }
     },
     args: {
