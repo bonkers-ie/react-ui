@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* text */
-    --base-line-height: 1.6;
-    --base-font: museo-sans, sans-serif;
-  }
+	:root {
+		/* text */
+		--base-line-height: 1.6;
+		--base-font: museo-sans, sans-serif;
+	}
 }
 
 body {
-  font-family: var(--base-font);
+	font-family: var(--base-font);
 }
 
 *:focus,
 *:active {
-  outline: none;
+	outline: none;
 }
 
 input,
@@ -25,5 +25,23 @@ button,
 select,
 label,
 a {
-  -webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent;
+}
+
+.color_circle:before {
+	content: "";
+	display: block;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 2px dotted rgb(0 0 0 / 41%);
+	border-radius: 50%;
+	transform: scale(1.08);
+	z-index: -1;
+}
+
+.color_wrapper{
+	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
