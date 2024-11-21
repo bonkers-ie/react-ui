@@ -3,7 +3,7 @@ import plugin from "tailwindcss/plugin";
 import _colors from "./src/_styles/_colors.json";
 import _shadow from "./src/_styles/_shadow.json";
 import _spacing from "./src/_styles/_spacing.json";
-import _fontSizes from "./src/_styles/_font-sizes.json";
+import _fontSizes from "./src/_styles/_fontSizes.json";
 import _backdropBlur from "./src/_styles/_backdropBlur.json";
 
 export default plugin(
@@ -49,7 +49,7 @@ export default plugin(
 				// colors
 				"--color-white": "white",
 				"--color-black": "black",
-				"--color-current": "currentcolor",
+				"--color-current": "currentColor",
 				"--color-transparent": "transparent",
 
 				"--color-primary-50": "#ecf8ed",

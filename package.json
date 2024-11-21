@@ -7,7 +7,8 @@
 		"dev": "storybook dev -p 6006",
 		"lint": "eslint --fix './src/**/*.{ts,tsx}'",
 		"upgrade": "bun x npm-check-updates -ui",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"typecheck": "tsc --noEmit"
 	},
 	"overrides": {
 		"rollup": "npm:@rollup/wasm-node"

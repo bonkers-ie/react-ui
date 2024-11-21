@@ -1,4 +1,4 @@
-import { Colors } from "./сolors";
+import { Colors } from "./Colors";
 
 export default {
 	title: "Example/Colors",

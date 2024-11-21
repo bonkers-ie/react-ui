@@ -1,5 +1,6 @@
 import React from "react";
 import colors from "../../_styles/_colors.json";
+import { getCssVariableValue } from "../../helper";
 
 export const Colors = () => {
 	const baseColors = Object.entries(colors).filter(
@@ -17,17 +18,25 @@ export const Colors = () => {
 				<ul className="color_wrapper grid gap-md">
 					{baseColors.map(([groupTitle, colorValue]) => (
 						<li key={groupTitle} className="grid gap-xs">
-							<div className="color_circle relative m-auto size-xxxxxl rounded-full" style= {{
-								backgroundColor: typeof colorValue === "string" ? colorValue : "",
-							}}>
-							</div>
-							<b className="text-center text-lg">{groupTitle}</b>
-							<div className="text-center text-md">{typeof colorValue === "string" ? colorValue : ""}</div>
+							{
+								typeof colorValue === "string"
+									? (
+										<>
+											<div className="color_circle relative m-auto size-xxxxxl rounded-full" style={{
+												backgroundColor: colorValue,
+											}}>
+											</div>
+											<b className="text-center text-lg">{groupTitle}</b>
+											<div className="text-center">({getCssVariableValue(colorValue)})</div>
+											<div className="text-nowrap text-center text-md">{colorValue}</div>
+										</>)
+									: null
+							}
 						</li>
 					))}
 				</ul>
 			</div>
-			<hr className="my-sm" />
+			<hr className="my-sm"/>
 
 			{groupedColors.map(([groupTitle, groupColors]) => (
 				<div className="mb-md" key={groupTitle}>
@@ -40,11 +49,12 @@ export const Colors = () => {
 								}}>
 								</div>
 								<b className="text-center text-lg">{shade}</b>
-								<div className="text-center text-md">{colorValue}</div>
+								<div className="text-center">({getCssVariableValue(colorValue)})</div>
+								<div className="text-center text-md text-nowrap">{colorValue}</div>
 							</li>
 						))}
 					</ul>
-					<hr className="my-sm" />
+					<hr className="my-sm"/>
 				</div>
 			))}
 		</div>
