@@ -130,6 +130,7 @@ export const UiTypography: React.FC<ITypographyProps> = (
 	}) => {
 
 	const classes = cx(
+		"ui-typography",
 		{
 			underline
 		},

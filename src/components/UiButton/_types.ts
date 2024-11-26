@@ -15,3 +15,8 @@ export enum EButtonSizes {
 	MEDIUM = "md",
 	LARGE = "lg"
 }
+
+export enum EButtonWeight {
+	DEFAULT = "default",
+	BOLD = "bold",
+}

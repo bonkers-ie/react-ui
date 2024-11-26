@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiButton } from "./UiButton";
-import { EButtonSizes, EButtonTypes } from "./_typings";
+import { EButtonSizes, EButtonTypes, EButtonWeight } from "./_types";
 
 const meta = {
 	title: "Components/UiButton",
@@ -32,6 +32,13 @@ const meta = {
 			},
 			description: "Button Disabled",
 		},
+		weight: {
+			control: {
+				type: "select"
+			},
+			options: Object.values(EButtonWeight),
+			description: "Button Weight",
+		},
 		children: {
 			control: {
 				type: "text",
@@ -45,6 +52,7 @@ const meta = {
 		size: EButtonSizes.DEFAULT,
 		fullWidth: false,
 		disabled: false,
+		weight: EButtonWeight.BOLD
 	},
 } satisfies Meta<typeof UiButton>;
 
