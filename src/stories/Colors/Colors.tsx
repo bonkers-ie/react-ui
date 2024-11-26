@@ -50,7 +50,7 @@ export const Colors = () => {
 								</div>
 								<b className="text-center text-lg">{shade}</b>
 								<div className="text-center">({getCssVariableValue(colorValue)})</div>
-								<div className="text-center text-md text-nowrap">{colorValue}</div>
+								<div className="text-nowrap text-center text-md">{colorValue}</div>
 							</li>
 						))}
 					</ul>

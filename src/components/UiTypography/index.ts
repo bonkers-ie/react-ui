@@ -1,0 +1,1 @@
+export { UiTypography } from "./UiTypography";

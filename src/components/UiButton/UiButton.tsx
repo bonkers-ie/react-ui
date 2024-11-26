@@ -10,6 +10,25 @@ interface IButtonProps {
 	children?: React.ReactNode;
 }
 
+const kindClasses = {
+	[EButtonTypes.PRIMARY]: "bg-primary text-white",
+	[EButtonTypes.SECONDARY]: "bg-secondary text-white",
+	[EButtonTypes.ERROR]: "bg-error text-white",
+	[EButtonTypes.WARNING]: "bg-warning text-white",
+	[EButtonTypes.PRIMARY_OVERLAY]: "border border-primary text-primary",
+	[EButtonTypes.SECONDARY_OVERLAY]: "border border-secondary text-secondary",
+	[EButtonTypes.ERROR_OVERLAY]: "border border-error text-error",
+	[EButtonTypes.WARNING_OVERLAY]: "border border-warning text-warning",
+	[EButtonTypes.LINK]: "text-accent-alt",
+};
+
+const sizeClasses = {
+	[EButtonSizes.SMALL]: "px-md py-xxs",
+	[EButtonSizes.MEDIUM]: "p-sm",
+	[EButtonSizes.LARGE]: "p-md",
+	[EButtonSizes.DEFAULT]: "px-md py-sm",
+};
+
 export const UiButton: React.FC<IButtonProps> = ({
 													 kind = EButtonTypes.PRIMARY,
 													 size = EButtonSizes.DEFAULT,
@@ -17,25 +36,6 @@ export const UiButton: React.FC<IButtonProps> = ({
 													 disabled = false,
 													 children
 												 }) => {
-	const kindClasses = {
-		[EButtonTypes.PRIMARY]: "bg-primary text-white",
-		[EButtonTypes.SECONDARY]: "bg-secondary text-white",
-		[EButtonTypes.ERROR]: "bg-error text-white",
-		[EButtonTypes.WARNING]: "bg-warning text-white",
-		[EButtonTypes.PRIMARY_OVERLAY]: "border border-primary text-primary",
-		[EButtonTypes.SECONDARY_OVERLAY]: "border border-secondary text-secondary",
-		[EButtonTypes.ERROR_OVERLAY]: "border border-error text-error",
-		[EButtonTypes.WARNING_OVERLAY]: "border border-warning text-warning",
-		[EButtonTypes.LINK]: "text-accent-alt",
-	};
-
-	const sizeClasses = {
-		[EButtonSizes.SMALL]: "px-md py-xxs",
-		[EButtonSizes.MEDIUM]: "p-sm",
-		[EButtonSizes.LARGE]: "p-md",
-		[EButtonSizes.DEFAULT]: "px-md py-sm",
-	};
-
 	return (
 		<button
 			className={cx(

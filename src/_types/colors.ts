@@ -5,11 +5,16 @@ export enum EColors {
 	CURRENT = "--color-current",
 
 	PRIMARY = "--color-primary",
+	PRIMARY_50 = "--color-primary-50",
+	PRIMARY_100 = "--color-primary-100",
+	PRIMARY_200 = "--color-primary-200",
 	PRIMARY_300 = "--color-primary-300",
 	PRIMARY_400 = "--color-primary-400",
 	PRIMARY_500 = "--color-primary-500",
 	PRIMARY_600 = "--color-primary-600",
 	PRIMARY_700 = "--color-primary-700",
+	PRIMARY_800 = "--color-primary-800",
+	PRIMARY_900 = "--color-primary-900",
 
 	PRIMARY_ALT = "--color-primary-alt",
 	PRIMARY_ALT_300 = "--color-primary-alt-300",
