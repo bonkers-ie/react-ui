@@ -1,3 +1,4 @@
+import React from "react";
 import SpacingsJson from "../../_styles/_spacing.json";
 import { getCssVariableValue } from "../../helper";
 

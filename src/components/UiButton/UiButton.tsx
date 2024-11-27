@@ -1,6 +1,7 @@
 import React from "react";
 import { EButtonSizes, EButtonTypes, EButtonWeight } from "./_types.ts";
 import cx from "classnames";
+import css from "./UiButton.module.css";
 
 interface IButtonProps {
 	kind?: EButtonTypes;
@@ -138,7 +139,7 @@ export const UiButton: React.FC<IButtonProps> = ({
 	return (
 		<button
 			className={cx(
-				"ui-button",
+				css.UiButton,
 				"text-base",
 				"touch-manipulation",
 				"whitespace-nowrap",
