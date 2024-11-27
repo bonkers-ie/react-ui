@@ -13,6 +13,7 @@ interface ITypographyProps {
 	align?: ETextAlign;
 	weight?: ETextWeight;
 	color?: EColors;
+	className?: string;
 }
 
 const sizeClasses = {
@@ -126,7 +127,8 @@ export const UiTypography: React.FC<ITypographyProps> = (
 		textTransform,
 		align,
 		weight,
-		color
+		color,
+		className
 	}) => {
 
 	const classes = cx(
@@ -139,7 +141,8 @@ export const UiTypography: React.FC<ITypographyProps> = (
 		textTransform && textTransformClasses[textTransform],
 		align && alignClasses[align],
 		weight && weightClasses[weight],
-		color && colorClasses[color]
+		color && colorClasses[color],
+		className
 	);
 
 	return (

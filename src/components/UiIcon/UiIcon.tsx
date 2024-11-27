@@ -33,7 +33,8 @@ export const UiIcon: React.FC<IUiIconProps> = ({ size, name }) => {
 			className={cx(
 				"ui-icon",
 				"inline",
-				"align-text-top",
+				"overflow-visible",
+				"align-[-.125em]",
 				size && sizeToClassName[size]
 			)}
 		/>
