@@ -3,14 +3,14 @@ import { EButtonSizes, EButtonTypes, EButtonWeight } from "./_types.ts";
 import cx from "classnames";
 import css from "./UiButton.module.css";
 
-interface IButtonProps {
+type TButtonProps = {
 	kind?: EButtonTypes;
 	size?: EButtonSizes;
 	fullWidth?: boolean;
-	disabled?: boolean;
-	children?: React.ReactNode;
 	weight?: EButtonWeight;
-}
+} & React.HTMLAttributes<HTMLElement> &
+React.ButtonHTMLAttributes<HTMLElement> &
+React.AnchorHTMLAttributes<HTMLElement>
 
 const kindClasses = {
 	[EButtonTypes.PRIMARY]: `
@@ -128,16 +128,20 @@ const weightClasses = {
 	[EButtonWeight.BOLD]: "font-bold",
 };
 
-export const UiButton: React.FC<IButtonProps> = ({
+export const UiButton: React.FC<TButtonProps> = ({
 	kind = EButtonTypes.PRIMARY,
 	size = EButtonSizes.DEFAULT,
 	fullWidth = false,
 	disabled = false,
 	children,
-	weight = EButtonWeight.BOLD
+	weight = EButtonWeight.BOLD,
+	onClick,
+	...rest
 }) => {
 	return (
 		<button
+			{...rest}
+			onClick={onClick}
 			className={cx(
 				css.UiButton,
 				"text-base",

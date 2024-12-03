@@ -8,8 +8,9 @@
 		"lint": "eslint --fix './src/**/*.{ts,tsx}'",
 		"upgrade": "bun x npm-check-updates -ui",
 		"build-storybook": "storybook build",
-		"build": "vite build && bun run postbuild.ts",
-		"typecheck": "tsc --noEmit"
+		"build": "vite build",
+		"typecheck": "tsc --noEmit",
+		"pack": "bun run build && bun run postbuild.ts && cd dist && npm pack --pack-destination ../"
 	},
 	"overrides": {
 		"rollup": "npm:@rollup/wasm-node"
@@ -62,5 +63,27 @@
 		"tailwindcss": "^3"
 	},
 	"keywords": [],
-	"license": "ISC"
+	"license": "ISC",
+
+	"main": "./react-ui.umd.js",
+	"module": "./index.js",
+	"types": "./index.d.ts",
+	"exports": {
+		".": "./index.js",
+		"./types": {
+			"import": "./types.js",
+			"types": "./types.d.ts"
+		},
+		"./plugin": "./plugin.ts",
+		"./*": {
+			"types": "./components/*/index.d.ts",
+			"import": "./components/*/index.js"
+		},
+		"./components/*": {
+			"types": "./components/*/index.d.ts",
+			"import": "./components/*/index.js"
+		},
+		"./postcss.config.js": "./postcss.config.js",
+		"./eslint.config.mjs": "./eslint.config.mjs"
+	}
 }
