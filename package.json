@@ -10,7 +10,8 @@
 		"build-storybook": "storybook build",
 		"build": "vite build",
 		"typecheck": "tsc --noEmit",
-		"pack": "bun run build && bun run postbuild.ts && cd dist && npm pack --pack-destination ../"
+		"pack": "bun run build && bun run postbuild.ts && cd dist && npm pack --pack-destination ../",
+		"prepare": "husky"
 	},
 	"dependencies": {
 		"classnames": "^2.5.1",
@@ -40,6 +41,8 @@
 		"eslint-plugin-react": "^7.37.2",
 		"eslint-plugin-storybook": "^0.11.1",
 		"eslint-plugin-tailwindcss": "^3.17.5",
+		"husky": "^9.1.7",
+		"lint-staged": "^15.2.10",
 		"postcss": "^8.4.49",
 		"storybook": "^8.4.5",
 		"storybook-dark-mode": "^4.0.2",
@@ -59,6 +62,12 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"tailwindcss": "^3"
+	},
+	"lint-staged": {
+		"./src/**/*.{ts,tsx}": [
+			"bun eslint --fix",
+			"bash -c 'bun typecheck'"
+		]
 	},
 	"keywords": [],
 	"license": "ISC",
