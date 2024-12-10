@@ -18,7 +18,7 @@ export const berRankDictionary = [
 	},
 	{
 		text: "F",
-		color: EColors.WARNING,
+		color: EColors.WARNING_700,
 	},
 	{
 		text: "E2",
