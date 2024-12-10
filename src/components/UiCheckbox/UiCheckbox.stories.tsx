@@ -40,13 +40,11 @@ const meta = {
 			},
 			description: "The Element checked state",
 		},
-
 		children: {
 			control: {
 				type: "text"
 			}
 		},
-
 	},
 	args: {
 		children: "Some text",
@@ -54,10 +52,8 @@ const meta = {
 		invertOrder: false,
 		disabled: false,
 		checked: false,
-		size: ECheckboxSize.MD,
-		onChange: (checked: boolean) => {
-			console.log(`Checkbox is now ${checked ? "checked" : "unchecked"}`);
-		},
+		onChange: (value: boolean, name?: string) => console.log(`${name ? name : "Value"} updated to ${value}`),
+		size: ECheckboxSize.MD
 	},
 } satisfies Meta<typeof UiCheckbox>;
 
@@ -73,20 +69,64 @@ export const Primary: Story = {
 			setChecked(args.checked);
 		}, [args.checked]);
 
-		const handleChange = (value: boolean) => {
-			setChecked(value);
+		const handleChange = (isChecked: boolean) => {
+			setChecked(isChecked);
+			args.onChange(isChecked);
 		};
+
 		return (
 			<UiCheckbox
+				{...args}
 				checked={checked}
 				onChange={handleChange}
-				justify={args.justify}
-				invertOrder={args.invertOrder}
-				disabled={args.disabled}
-				size={args.size}
-			>
-				{args.children}
-			</UiCheckbox>
+			/>
+		);
+	}
+};
+
+export const CheckboxGroup: Story = {
+	render: (args) => {
+		const [checkedItems, setCheckedItems] = React.useState({
+			option1: false,
+			option2: true,
+			option3: false,
+		});
+
+		const handleChange = (isChecked: boolean, name: string) => {
+			setCheckedItems(prev => ({
+				...prev,
+				[name]: isChecked
+			}));
+			args.onChange(isChecked, name as keyof typeof checkedItems);
+		};
+
+		return (
+			<div className="flex flex-col gap-sm">
+				<UiCheckbox
+					{...args}
+					name="option1"
+					checked={checkedItems.option1}
+					onChange={(isChecked) => handleChange(isChecked, "option1")}
+				>
+					Option 1
+				</UiCheckbox>
+				<UiCheckbox
+					{...args}
+					name="option2"
+					checked={checkedItems.option2}
+					onChange={(isChecked) => handleChange(isChecked, "option2")}
+				>
+					Option 2
+				</UiCheckbox>
+				<UiCheckbox
+					{...args}
+					name="option3"
+					checked={checkedItems.option3}
+					onChange={(isChecked) => handleChange(isChecked, "option3")}
+				>
+					Option 3
+				</UiCheckbox>
+			</div>
 		);
 	}
 };
