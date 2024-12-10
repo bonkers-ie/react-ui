@@ -76,6 +76,7 @@ export const UiRadio: React.FC<TUiRadioProps> = ({
 				"peer-checked:border-2",
 				"peer-checked:border-primary",
 				"peer-checked:hover:border-primary-600",
+				"peer-checked:active:border-primary-800",
 				"peer-focus:shadow-border-primary",
 				"peer-disabled:border-secondary-alt-400",
 				"peer-disabled:bg-secondary-alt-200"
