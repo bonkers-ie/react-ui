@@ -1,0 +1,20 @@
+.UiRadio__dot {
+	transform: translate3d(-50%, -50%, 0) scale(0);
+	transition: transform 0.2s ease-in-out;
+}
+
+input:checked + .UiRadio__custom .UiRadio__dot {
+	transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+input:checked + .UiRadio__custom:hover .UiRadio__dot {
+	background-color: var(--color-primary-600);
+}
+
+input:checked:disabled + .UiRadio__custom {
+	border: 2px solid var(--color-primary-300);
+}
+
+input:checked:disabled + .UiRadio__custom .UiRadio__dot {
+	background-color: var(--color-primary-300);
+}
