@@ -1,17 +1,15 @@
 
 import React from "react";
 import { EAlertTypes } from "./_types";
-import { ETypographySizes, UiTypography } from "../UiTypography";
 import cx from "classnames";
 
 interface IUiAlert {
     children: React.ReactNode,
-    kind?: EAlertTypes,
-    icon?: React.ReactNode
+    kind?: EAlertTypes
 }
 
 const kindClasses = {
-	[EAlertTypes.PRIMARY]: "border-primary text-primary",
+	[EAlertTypes.PRIMARY]: "border-primary text-primary ",
 	[EAlertTypes.SECONDARY]: "'border-secondary text-secondary",
 	[EAlertTypes.ERROR]: "border-error text-error",
 	[EAlertTypes.WARNING]: "border-warning text-warning"
@@ -20,8 +18,7 @@ const kindClasses = {
 
 export const UiAlert: React.FC<IUiAlert> = ({
 	children,
-	kind = EAlertTypes.PRIMARY,
-	icon
+	kind = EAlertTypes.PRIMARY
 }) => {
 	return (
 		<div className={cx(
@@ -32,16 +29,11 @@ export const UiAlert: React.FC<IUiAlert> = ({
 			"border",
 			"bg-white",
 			"p-sm",
+			"leading-normal",
+			"text-xs",
 			kindClasses[kind],
 		)}>
-			{icon}
-			{children
-				? (
-					<UiTypography size={ETypographySizes.XS} className="leading-normal text-secondary-500">
-						{children}
-					</UiTypography>
-				)
-				: null}
+			{children}
 		</div>
 	);
 };

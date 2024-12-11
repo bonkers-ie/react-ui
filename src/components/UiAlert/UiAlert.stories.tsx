@@ -38,9 +38,12 @@ export const Primary: Story = {
 	render: (args)=>(
 		<UiAlert
 			kind={args.kind}
-			icon={<UiIcon name={["far", "face-smile"]} size={ESize.SM}/>}
 		>
-			{args.children}
+			<UiIcon name={["far", "face-smile"]} size={ESize.SM}/>
+			<span className="text-secondary">
+				{args.children}
+			</span>
+
 		</UiAlert>
 	)
 };

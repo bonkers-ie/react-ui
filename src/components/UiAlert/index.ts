@@ -1,2 +1,2 @@
 export { UiAlert } from "./UiAlert";
-export { EAlertTypes } from "./_types";
+export * from "./_types";
