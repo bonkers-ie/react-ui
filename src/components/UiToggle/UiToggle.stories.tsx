@@ -1,21 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiToggle } from "./UiToggle";
-// import { UiIcon } from "../UiIcon";
-// import { EBadgeKind, EBadgeSize } from "./_types";
-//import React from "react";
-// import { ESize } from "../../_types/sizing";
 
 const meta = {
 	title: "Components/UiToggle",
 	component: UiToggle,
 	argTypes: {
-		children: {
+		title: {
 			control: {
 				type: "text",
 			},
 			description: "header",
 		},
-		title: {
+		children: {
 			control: {
 				type: "text",
 			},
@@ -37,8 +33,8 @@ const meta = {
 	},
 	args: {
 
-		children: "header",
-		title: "title",
+		title: "header",
+		children: "title",
 		disabled: false,
 		invertOrder: false,
 

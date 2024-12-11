@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import cx from "classnames";
-import { ETextWeight, ETypographySizes, UiTypography } from "../UiTypography";
 
 interface IUiToggle {
-	children?: React.ReactNode
 	title?:  React.ReactNode
+	children?: React.ReactNode
 	disabled?: boolean
 	invertOrder?: boolean;
-
 }
 
 export const UiToggle: React.FC<IUiToggle> = ({
@@ -27,14 +25,9 @@ export const UiToggle: React.FC<IUiToggle> = ({
 		onMouseEnter={() => setIsHovered(true)}
 		onMouseLeave={() => setIsHovered(false)} >
 
-			{children
-				? (
-					<UiTypography weight={ETextWeight.SEMI_BOLD}>
-						{children}
-					</UiTypography>
-				)
-				: null
-			}
+			<span className={cx("font-bold")}>
+				{title}
+			</span>
 
 			<label className={cx(
 				"flex",
@@ -43,6 +36,9 @@ export const UiToggle: React.FC<IUiToggle> = ({
 				"rounded-full",
 				"mt-sm",
 				"items-center",
+				"w-full",
+				"leading-normal",
+				"text-md",
 				{
 					"flex-row-reverse": invertOrder,
 					"pointer-events-none": disabled
@@ -104,14 +100,7 @@ export const UiToggle: React.FC<IUiToggle> = ({
 					</span>
 				</span>
 
-				{title
-					? (
-						<UiTypography size={ETypographySizes.MD} className="w-full leading-normal">
-							{title}
-						</UiTypography>
-					)
-					: null
-				}
+				{children}
 
 			</label>
 
