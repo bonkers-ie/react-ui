@@ -12,7 +12,7 @@ export type TUiCheckboxProps = {
 	disabled?: boolean;
 	value?: string;
 	size?: ECheckboxSize;
-	onChange: (checked: boolean) => void;
+	onChange?: (checked: boolean) => void;
 	name?: string;
 } & Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "onChange">;
 
@@ -49,7 +49,7 @@ export const UiCheckbox: React.FC<TUiCheckboxProps> = ({
 }) => {
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		if (!disabled && onChange) {
-			onChange(event.target.checked);
+			onChange?.(event.target.checked);
 		}
 	};
 	return (

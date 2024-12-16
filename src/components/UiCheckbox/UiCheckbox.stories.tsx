@@ -97,7 +97,7 @@ export const CheckboxGroup: Story = {
 				...prev,
 				[name]: isChecked
 			}));
-			args.onChange(isChecked, name as keyof typeof checkedItems);
+			args.onChange?.(isChecked, name as keyof typeof checkedItems);
 		};
 
 		return (
