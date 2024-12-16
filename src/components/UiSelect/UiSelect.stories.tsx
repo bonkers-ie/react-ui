@@ -3,7 +3,7 @@ import React from "react";
 import { UiSelect } from "./UiSelect";
 
 const meta = {
-	title: "Components/ui-select",
+	title: "Components/UiSelect",
 	component: UiSelect,
 	argTypes: {
 		children: {
