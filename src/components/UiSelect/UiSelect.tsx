@@ -1,15 +1,16 @@
 import React from "react";
 import cx from "classnames";
 import { UiTypography, ETypographySizes, EColors } from "../UiTypography";
+import styles from "./UiSelect.module.css";
 
 type TSelectProps = {
 	heading?: string
 	subLabel?: string;
 	disabled?: boolean;
-	value?: string | number;
+	value?: string | number | readonly string[];
 	placeholder?: string;
 	postfixIcon?: React.ReactNode;
-	onChange:(event: React.ChangeEvent<HTMLSelectElement>) => void;
+	onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 } & React.SelectHTMLAttributes<HTMLSelectElement>
 
 export const UiSelect: React.FC<TSelectProps> = ({
@@ -17,12 +18,19 @@ export const UiSelect: React.FC<TSelectProps> = ({
 	heading,
 	subLabel,
 	disabled,
-	value,
 	onChange,
 	placeholder,
 	postfixIcon,
 	...rest
 }) => {
+	const [value, setValue] = React.useState(rest.value || rest.defaultValue || "");
+	const handleChange = React.useCallback(
+		(event: React.ChangeEvent<HTMLSelectElement>) => {
+			setValue(event.target.value);
+			onChange?.(event);
+		},
+		[onChange],
+	);
 	return (
 		<div>
 			{heading
@@ -33,12 +41,10 @@ export const UiSelect: React.FC<TSelectProps> = ({
 				</UiTypography>
 				: null
 			}
-			<div className={cx("relative",
+			<div className={cx(styles.UiSelect, "relative",
 				"rounded-xl",
 				"border",
 				"hover:border-secondary-alt-700",
-				"peer-focus:border-2",
-				"peer-focus:border-secondary-alt-700",
 				disabled
 					? ["pointer-events-none", "border-secondary-alt-300", "bg-secondary-alt-200"]
 					: ["border-secondary-alt-500", "bg-white"]
@@ -56,8 +62,9 @@ export const UiSelect: React.FC<TSelectProps> = ({
 					text-secondary-alt
 					outline-0
 					"
+					disabled={disabled}
 					value={value}
-					onChange={onChange}
+					onChange={handleChange}
 				>
 					{placeholder ? <option value={""} disabled hidden>{placeholder}</option> : null}
 					{children}

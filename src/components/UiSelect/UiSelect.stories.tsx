@@ -53,23 +53,18 @@ export const Primary: Story = {
 	render: (args) => {
 		const [value, setValue] = React.useState(args.value);
 
-		const handleOnChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 			setValue(event.target.value);
-			args.onChange(event);
 		};
 
 		return (
 			<React.Fragment>
-				<UiSelect {...args} value={value} onChange={handleOnChange}>
+				<UiSelect {...args} value={value} onChange={handleChange}>
 					<option value="" disabled hidden>Select an option</option>
 					<option value="1">Option 1</option>
 					<option value="2">Option 2</option>
 					<option value="3">Option 3</option>
 				</UiSelect>
-
-				<div className="mt-lg">
-					{`Selected value: ${value}`}
-				</div>
 			</React.Fragment>
 		);
 	}
