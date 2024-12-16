@@ -1,10 +1,8 @@
 
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiAlert } from "./UiAlert";
-import { UiIcon } from "../UiIcon";
 import { EAlertTypes } from "./_types";
 import React from "react";
-import { ESize } from "../../_types/sizing";
 
 const meta = {
 	title: "Components/UiAlert",
@@ -35,11 +33,11 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-	render: (args)=>(
+	render: (args) => (
 		<UiAlert
 			kind={args.kind}
+			icon={["far", "face-smile"]}
 		>
-			<UiIcon name={["far", "face-smile"]} size={ESize.SM}/>
 			<span className="text-secondary">
 				{args.children}
 			</span>
