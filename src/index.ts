@@ -5,4 +5,5 @@ export * as UiCheckbox from "./components/UiCheckbox";
 export * as UiIcon from "./components/UiIcon";
 export * as UiList from "./components/UiList";
 export * as UiPills from "./components/UiPills";
+export * as UiTable from "./components/UiTable";
 export * as UiTypography from "./components/UiTypography";
