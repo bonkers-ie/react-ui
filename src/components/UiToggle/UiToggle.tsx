@@ -23,7 +23,8 @@ export const UiToggle: React.FC<IUiToggle> = ({
 			"ui-toggle"
 		)}
 		onMouseEnter={() => setIsHovered(true)}
-		onMouseLeave={() => setIsHovered(false)} >
+		onMouseLeave={() => setIsHovered(false)}
+		>
 
 			<span className={cx("font-bold")}>
 				{title}
@@ -87,6 +88,7 @@ export const UiToggle: React.FC<IUiToggle> = ({
 						"translate-x-[1px]",
 						"translate-y-[-50%]",
 						"ease-in-out",
+						"transition-transform",
 						"hover:shadow-border-secondary",
 						"active:shadow-border-secondary",
 						"focus:shadow-border-secondary",
