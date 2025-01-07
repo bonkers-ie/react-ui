@@ -12,20 +12,20 @@ export const Spacings = () => {
 					<li className="grid gap-sm border border-black p-md">
 						<div>
 							<b>
-								{getCssVariableValue(size)}
+								{ getCssVariableValue(size) }
 							</b>
 							<br/>
 							<br/>
-							{size}
+							{ size }
 							<br/>
-							{key}
+							{ key }
 						</div>
 						<div
 							className="border border-black bg-primary-alt-400"
-							style={{
+							style={ {
 								width: size,
 								height: size,
-							}}
+							} }
 						/>
 					</li>
 				))

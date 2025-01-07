@@ -1,0 +1,84 @@
+.UiCheckbox {
+	grid-template-columns: auto auto;
+}
+
+.UiCheckbox__custom {
+	transition:
+		background-color ease-in-out 0.3s 0.3s,
+		border-width ease-in-out 0.2s;
+}
+
+.UiCheckbox__icon {
+	stroke-dasharray: 70;
+	stroke-dashoffset: 70;
+	transition: stroke-dashoffset 0.3s ease-in-out;
+}
+
+input + .UiCheckbox__custom:active {
+	transition: background-color ease-in-out 0.1s;
+	background-color: theme(colors.secondary-alt.200);
+}
+
+input + .UiCheckbox__custom:active,
+input:focus + .UiCheckbox__custom {
+	box-shadow: theme(boxShadow.border-primary-disabled);
+}
+
+input:disabled + .UiCheckbox__custom {
+	background-color: theme(colors.secondary-alt.200);
+	border-color: theme(colors.secondary-alt.400);
+}
+
+input:checked + .UiCheckbox__custom .UiCheckbox__icon {
+	stroke-dashoffset: 0;
+}
+
+input:checked + .UiCheckbox__custom > svg {
+	opacity: 1;
+}
+
+input:checked + .UiCheckbox__custom {
+	border-width: 0;
+	background-color: theme(colors.primary.500);
+	transition:
+		background-color ease-in-out 0.1s,
+		border-width ease-in-out 0.1s,
+		box-shadow ease-in-out 0.2s;
+	animation: cb-pop 0.5s ease-in-out;
+}
+
+input:checked + .UiCheckbox__custom:hover {
+	background-color: theme(colors.primary.600);
+}
+
+input:checked + .UiCheckbox__custom:active {
+	background-color: theme(colors.primary.700);
+}
+
+input:checked:disabled + .UiCheckbox__custom {
+	background-color: theme(colors.primary.300);
+	border: 1px solid theme(colors.primary.400);
+}
+
+.UiCheckbox__disabled {
+	pointer-events: none;
+	cursor: default;
+}
+
+@keyframes cb-pop {
+	0% {
+		transform: scale(1);
+	}
+
+	33% {
+		transform: scale(0.95);
+	}
+
+	66% {
+		transform: scale(1.05);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}

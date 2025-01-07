@@ -11,14 +11,14 @@ export const UiListItem: React.FC<IUiListItemProps> = ({ children, prefix }) => 
 			{
 				prefix
 					? <span className="ui-list-item__prefix-wrapper w-[1em]">
-						{prefix}
+						{ prefix }
 					</span>
 					: null
 			}
 			{
 				children
 					? <span className="ui-list-item__children">
-						{children}
+						{ children }
 					</span>
 					: null
 			}

@@ -35,14 +35,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const IconComponent = ()=>{
-	return <UiIcon name={["far", "face-smile"]}/>;
+	return <UiIcon name={ ["far", "face-smile"] }/>;
 };
 
 export const Primary: Story = {
 	render: (args)=> (
-		<UiList size={args.size} spacing={args.spacing}>
-			<UiListItem prefix={IconComponent()}>Item 1<br/> Item 1</UiListItem>
-			<UiListItem prefix={IconComponent()}>Item 2</UiListItem>
+		<UiList size={ args.size } spacing={ args.spacing }>
+			<UiListItem prefix={ IconComponent() }>Item 1<br/> Item 1</UiListItem>
+			<UiListItem prefix={ IconComponent() }>Item 2</UiListItem>
 			<UiListItem>Item 3</UiListItem>
 		</UiList>
 	)
