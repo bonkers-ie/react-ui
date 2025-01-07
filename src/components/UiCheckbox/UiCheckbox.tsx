@@ -5,8 +5,6 @@ import { EJustify } from "../../_types/align";
 import { ECheckboxSize } from "./_types.ts";
 
 export type TUiCheckboxProps = {
-	children?: React.ReactNode;
-	checked: boolean;
 	invertOrder?: boolean;
 	justify?: EJustify;
 	disabled?: boolean;
@@ -14,7 +12,7 @@ export type TUiCheckboxProps = {
 	size?: ECheckboxSize;
 	onChange?: (checked: boolean) => void;
 	name?: string;
-} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "checked" | "onChange">;
+} & Omit<React.InputHTMLAttributes<HTMLInputElement>, "size" | "onChange">;
 
 const justificationClasses = {
 	[EJustify.START]: "justify-start",

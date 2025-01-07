@@ -71,7 +71,7 @@ export const Primary: Story = {
 
 		const handleChange = (isChecked: boolean) => {
 			setChecked(isChecked);
-			args.onChange(isChecked);
+			args.onChange?.(isChecked);
 		};
 
 		return (
