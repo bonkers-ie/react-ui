@@ -33,24 +33,24 @@ export const UiSelect: React.FC<TSelectProps> = ({
 	);
 	return (
 		<div>
-			{heading
+			{ heading
 				? <UiTypography
-					size={ETypographySizes.MD}
+					size={ ETypographySizes.MD }
 					className="mb-xxs">
-					{heading}
+					{ heading }
 				</UiTypography>
 				: null
 			}
-			<div className={cx(styles.UiSelect, "relative",
+			<div className={ cx(styles.UiSelect, "relative",
 				"rounded-xl",
 				"border",
 				"hover:border-secondary-alt-700",
 				disabled
 					? ["pointer-events-none", "border-secondary-alt-300", "bg-secondary-alt-200"]
 					: ["border-secondary-alt-500", "bg-white"]
-			)}>
+			) }>
 				<select
-					{...rest}
+					{ ...rest }
 					className="m-0
 					w-full
 					cursor-pointer
@@ -62,15 +62,15 @@ export const UiSelect: React.FC<TSelectProps> = ({
 					text-secondary-alt
 					outline-0
 					"
-					disabled={disabled}
-					value={value}
-					onChange={handleChange}
+					disabled={ disabled }
+					value={ value }
+					onChange={ handleChange }
 				>
-					{placeholder ? <option value={""} disabled hidden>{placeholder}</option> : null}
-					{children}
+					{ placeholder ? <option value={ "" } disabled hidden>{ placeholder }</option> : null }
+					{ children }
 				</select>
 				<div className="absolute right-sm top-1/2 -translate-y-1/2">
-					{postfixIcon
+					{ postfixIcon
 						? postfixIcon
 						: (<svg
 							width="16"
@@ -87,13 +87,13 @@ export const UiSelect: React.FC<TSelectProps> = ({
 					}
 				</div>
 			</div>
-			{subLabel
+			{ subLabel
 				? (<UiTypography
-					size={ETypographySizes.SM}
-					color={EColors.SECONDARY_ALT}
+					size={ ETypographySizes.SM }
+					color={ EColors.SECONDARY_ALT }
 					className="mt-xxs"
 				>
-					{subLabel}
+					{ subLabel }
 				</UiTypography>)
 				: null
 			}

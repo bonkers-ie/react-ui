@@ -57,32 +57,32 @@ export const Default: Story = {
 		return (
 			<div className="grid gap-xxs">
 				<UiRadio
-					{...args}
+					{ ...args }
 					name="radio"
 					value="value_1"
-					checked={selectedValue === "value_1"}
-					onChange={handleChange}
+					checked={ selectedValue === "value_1" }
+					onChange={ handleChange }
 				/>
 				<UiRadio
-					{...args}
+					{ ...args }
 					name="radio"
 					value="value_2"
-					checked={selectedValue === "value_2"}
-					onChange={handleChange}
+					checked={ selectedValue === "value_2" }
+					onChange={ handleChange }
 				/>
 				<UiRadio
-					{...args}
+					{ ...args }
 					name="radio"
 					value="value_3"
-					checked={selectedValue === "value_3"}
-					onChange={handleChange}
+					checked={ selectedValue === "value_3" }
+					onChange={ handleChange }
 				/>
 				<UiRadio
-					{...args}
+					{ ...args }
 					name="radio"
 					value="value_4"
-					checked={selectedValue === "value_4"}
-					onChange={handleChange}
+					checked={ selectedValue === "value_4" }
+					onChange={ handleChange }
 				/>
 			</div>
 		);
