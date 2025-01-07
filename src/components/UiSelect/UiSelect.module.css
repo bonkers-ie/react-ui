@@ -1,0 +1,8 @@
+.UiSelect {
+  transition: all 0.15s ease-in-out;
+}
+
+.UiSelect:not(:disabled):focus-within {
+  border-color: transparent;
+  box-shadow: 0 0 0 2px theme(colors.secondary-alt.700);
+}
