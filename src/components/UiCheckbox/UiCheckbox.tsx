@@ -60,16 +60,16 @@ export const UiCheckbox: React.FC<TUiCheckboxProps> = ({
 				disabled && styles.UiCheckbox__disabled)
 		}>
 			<input
-				{...rest}
+				{ ...rest }
 				className="absolute appearance-none"
 				type="checkbox"
-				checked={checked}
-				disabled={disabled}
-				value={value}
-				name={name}
-				onChange={handleChange}
+				checked={ checked }
+				disabled={ disabled }
+				value={ value }
+				name={ name }
+				onChange={ handleChange }
 			/>
-			<span className={cx(styles.UiCheckbox__custom,
+			<span className={ cx(styles.UiCheckbox__custom,
 				"relative",
 				"flex",
 				"items-center",
@@ -80,9 +80,9 @@ export const UiCheckbox: React.FC<TUiCheckboxProps> = ({
 				"hover:border-secondary-alt-700",
 				invertOrder && "order-last",
 				spanSizeClasses[size]
-			)}>
+			) }>
 				<svg
-					className={cx(styles.UiCheckbox__icon, "text-white", svgSizeClasses[size])}
+					className={ cx(styles.UiCheckbox__icon, "text-white", svgSizeClasses[size]) }
 					viewBox="0 0 16 12"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -96,11 +96,7 @@ export const UiCheckbox: React.FC<TUiCheckboxProps> = ({
 					/>
 				</svg>
 			</span>
-			{children && (
-				<span>
-					{children}
-				</span>
-			)}
+			{ children }
 		</label>
 	);
 };

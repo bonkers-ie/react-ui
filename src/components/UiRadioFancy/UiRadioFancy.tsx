@@ -19,23 +19,16 @@ export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
 	subHeader
 }) => {
 	return (
-		<label className={cx(
+		<label className={ cx(
 			"ui-radio-fancy",
 			"relative",
 			{
 				"pointer-events-none": disabled
 			}
-		)}
-		>
-			<input className={cx(
-				"group" ,
-				"peer",
-				" absolute",
-				"appearance-none"
-			)}
-			type="radio"/>
+		) }>
+			<input className="group peer absolute appearance-none" type="radio"/>
 
-			<div className={cx(
+			<div className={ cx(
 				"box-border",
 				"size-full",
 				"cursor-pointer",
@@ -55,8 +48,8 @@ export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
 					"border-primary-600": !disabled
 				}
 
-			)}>
-				<div className={cx(
+			) }>
+				<div className={ cx(
 					"relative",
 					"grid",
 					"size-fit",
@@ -69,16 +62,23 @@ export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
 						"bg-primary": !disabled
 					}
 
-				)}
+				) }
 				>
 
-					{icon ? <UiIcon name={icon} size={ESize.SM}/> : null }
+					{
+						icon
+							? <UiIcon
+								name={ icon }
+								size={ ESize.SM }
+							/>
+							: null
+					}
 
 				</div>
 
 				<div className="flex flex-col">
-					{children}
-					<div className="text-xs font-normal text-secondary-alt-400">{subHeader}</div>
+					{ children }
+					<div className="text-xs font-normal text-secondary-alt-400">{ subHeader }</div>
 				</div>
 
 			</div>

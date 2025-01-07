@@ -31,40 +31,40 @@ export const UiProductCard: React.FC<TUiProductCardProps> = ({ badgeText,
 			px-xs
 			py-sm'>
 
-			{badgeText && (
+			{ badgeText && (
 				<div className="!absolute -top-xxs right-xs">
-					<UiPills rounded kind={EBadgeKind.ACCENT_ALT}>{badgeText}</UiPills>
+					<UiPills rounded kind={ EBadgeKind.ACCENT_ALT }>{ badgeText }</UiPills>
 				</div>
-			)}
+			) }
 
-			{header}
+			{ header }
 
 			<div className="grid gap-xxs">
-				{customTitle || (
+				{ customTitle || (
 					title && (
 						<UiTypography
-							size={ETypographySizes.MD}
-							weight={ETextWeight.BOLD}
-							align={ETextAlign.LEFT}
+							size={ ETypographySizes.MD }
+							weight={ ETextWeight.BOLD }
+							align={ ETextAlign.LEFT }
 							lineHeight
 						>
-							{title}
+							{ title }
 						</UiTypography>
 					)
-				)}
+				) }
 
-				{customSubtitle || (
+				{ customSubtitle || (
 					subtitle && (
 						<UiTypography
-							size={ETypographySizes.XS}
-							align={ETextAlign.LEFT}
-							color={EColors.SECONDARY_400}
+							size={ ETypographySizes.XS }
+							align={ ETextAlign.LEFT }
+							color={ EColors.SECONDARY_400 }
 							lineHeight
 						>
-							{subtitle}
+							{ subtitle }
 						</UiTypography>
 					)
-				)}
+				) }
 			</div>
 		</div >
 	);

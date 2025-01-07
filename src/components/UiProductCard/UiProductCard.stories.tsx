@@ -36,11 +36,11 @@ export const Default: Story = {
 	render: (args) => {
 		const header = (
 			<div className="flex w-fit rounded-full bg-primary p-sm text-white">
-				<UiIcon name={["far", "face-smile"]} size={ESize.LG} />
+				<UiIcon name={ ["far", "face-smile"] } size={ ESize.LG } />
 			</div>
 		);
 		return (
-			<UiProductCard {...args} header={header} />
+			<UiProductCard { ...args } header={ header } />
 		);
 	}
 };
@@ -49,20 +49,20 @@ export const Variants: Story = {
 	render: (args) => {
 		const header1 = (
 			<div className="flex w-fit rounded-full bg-primary p-sm text-white">
-				<UiIcon name={["far", "face-angry"]} size={ESize.MD} />
+				<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 			</div>
 		);
 
 		const header2 = (
 			<div className="flex w-fit rounded-full bg-primary p-xxs text-white">
-				<UiIcon name={["far", "face-meh"]} size={ESize.LG} />
+				<UiIcon name={ ["far", "face-meh"] } size={ ESize.LG } />
 			</div>
 		);
 		return (
 
 			<div className="grid w-[412px] grid-cols-2 gap-xs">
-				<UiProductCard {...args} header={header1} />
-				<UiProductCard {...args} header={header2} badgeText="UP TO €586 OFF" />
+				<UiProductCard { ...args } header={ header1 } />
+				<UiProductCard { ...args } header={ header2 } badgeText="UP TO €586 OFF" />
 			</div>
 		);
 	}

@@ -44,11 +44,11 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
 	render: (args)=>(
 		<UiPills
-			kind={args.kind}
-			size={args.size}
-			icon={<UiIcon name={["far", "face-smile"]} size={ESize.XS}/>}
+			kind={ args.kind }
+			size={ args.size }
+			icon={ <UiIcon name={ ["far", "face-smile"] } size={ ESize.XS }/> }
 		>
-			{args.children}
+			{ args.children }
 		</UiPills>
 	)
 };
