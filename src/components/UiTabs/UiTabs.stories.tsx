@@ -44,6 +44,7 @@ export const Primary: Story = {
 					onTabChange={handleChange1}
 				/>
 				<br/>
+				{value1}
 
 			</div>
 		);
