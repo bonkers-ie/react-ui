@@ -42,6 +42,6 @@ a {
 	z-index: -1;
 }
 
-.color_wrapper{
+.color_wrapper {
 	grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }

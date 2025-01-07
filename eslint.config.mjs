@@ -51,6 +51,11 @@ export default [
 			}],
 			"@stylistic/indent": ["error", "tab"],
 			"@stylistic/no-mixed-spaces-and-tabs": "error",
+			"react/jsx-curly-spacing": [2, {
+				"when": "always",
+				"children": true
+			}],
+			"react/jsx-indent": ["error", "tab"],
 			"tailwindcss/no-custom-classname": "off",
 			"object-curly-newline": ["error", {
 				"ObjectExpression": {
