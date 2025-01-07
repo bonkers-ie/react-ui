@@ -5,5 +5,6 @@ export * as UiCheckbox from "./components/UiCheckbox";
 export * as UiIcon from "./components/UiIcon";
 export * as UiList from "./components/UiList";
 export * as UiPills from "./components/UiPills";
+export * as UiProductCard from "./components/UiProductCard";
 export * as UiRadioFancy from "./components/UiRadioFancy";
 export * as UiTypography from "./components/UiTypography";

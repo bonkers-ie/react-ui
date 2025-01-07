@@ -146,8 +146,8 @@ export const UiTypography: React.FC<ITypographyProps> = (
 	);
 
 	return (
-		<Tag className={cx(classes)}>
-			{children}
+		<Tag className={ cx(classes) }>
+			{ children }
 		</Tag>
 	);
 };

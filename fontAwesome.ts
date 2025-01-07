@@ -3,6 +3,8 @@ import { library, config, type IconDefinition } from "@fortawesome/fontawesome-s
 
 /* import specific icons */
 import { faFaceSmile } from "@fortawesome/free-regular-svg-icons/faFaceSmile";
+import { faFaceAngry } from "@fortawesome/free-regular-svg-icons/faFaceAngry";
+import { faFaceMeh } from "@fortawesome/free-regular-svg-icons/faFaceMeh";
 
 config.autoAddCss = false;
 
@@ -10,6 +12,8 @@ config.autoAddCss = false;
 library
 	.add(
 		...[
-			faFaceSmile,
+			faFaceAngry,
+			faFaceMeh,
+			faFaceSmile
 		] as IconDefinition[]
 	);

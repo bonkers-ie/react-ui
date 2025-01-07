@@ -26,7 +26,7 @@ export const UiAlert: React.FC<IUiAlert> = ({
 	icon
 }) => {
 	return (
-		<div className={cx(
+		<div className={ cx(
 			"ui-alert",
 			"flex",
 			"gap-sm",
@@ -37,10 +37,10 @@ export const UiAlert: React.FC<IUiAlert> = ({
 			"leading-normal",
 			"text-xs",
 			kindClasses[kind],
-		)}>
+		) }>
 
-			{icon ? <UiIcon name={icon} size={ESize.SM} /> : null}
-			{children}
+			{ icon ? <UiIcon name={ icon } size={ ESize.SM } /> : null }
+			{ children }
 		</div>
 	);
 };

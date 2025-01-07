@@ -42,23 +42,23 @@ export const Primary: Story = {
 	render: (args) => (
 		<div>
 			<UiRadioFancy
-				disabled={args.disabled}
-				icon={["far", "face-smile"]}
+				disabled={ args.disabled }
+				icon={ ["far", "face-smile"] }
 
 			>
-				{args.children}
+				{ args.children }
 
 			</UiRadioFancy>
 
 			<br/>
 
 			<UiRadioFancy
-				disabled={args.disabled}
-				icon={["far", "face-smile"]}
-				subHeader={args.subHeader}
+				disabled={ args.disabled }
+				icon={ ["far", "face-smile"] }
+				subHeader={ args.subHeader }
 
 			>
-				{args.children}
+				{ args.children }
 
 			</UiRadioFancy>
 		</div>

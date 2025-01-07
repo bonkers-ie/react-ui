@@ -25,12 +25,12 @@ export const UiBerRank: React.FC<IUiBerRankProps> = ({
 	size = EBerSize.SMALL
 }) => {
 	return (
-		<div className={cx(
+		<div className={ cx(
 			"ui-ber-rank",
 			"flex"
-		)}>
+		) }>
 			<div className="relative">
-				<svg className={cx("text-secondary", sizeClasses[size])}
+				<svg className={ cx("text-secondary", sizeClasses[size]) }
 					viewBox="0 0 160 60"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -43,19 +43,19 @@ export const UiBerRank: React.FC<IUiBerRankProps> = ({
 				</svg>
 				<UiTypography
 					className="absolute left-0 top-0 flex size-full items-center justify-center"
-					color={EColors.WHITE}
-					size={textSize[size]}
-					weight={ETextWeight.BOLD}
-					textTransform={ETextTransform.UPPERCASE}
+					color={ EColors.WHITE }
+					size={ textSize[size] }
+					weight={ ETextWeight.BOLD }
+					textTransform={ ETextTransform.UPPERCASE }
 				>
 					ber
 				</UiTypography>
 			</div>
 			<div className="relative">
 				<UiTypography
-					color={berRankDictionary[+rank]?.color || berRankDictionary[0].color}
+					color={ berRankDictionary[+rank]?.color || berRankDictionary[0].color }
 				>
-					<svg className={sizeClasses[size]}
+					<svg className={ sizeClasses[size] }
 						viewBox="0 0 106 60"
 						fill="none"
 						xmlns="http://www.w3.org/2000/svg"
@@ -69,12 +69,12 @@ export const UiBerRank: React.FC<IUiBerRankProps> = ({
 				</UiTypography>
 				<UiTypography
 					className="absolute left-0 top-0 flex size-full items-center justify-center"
-					color={EColors.WHITE}
-					size={textSize[size]}
-					weight={ETextWeight.BOLD}
-					textTransform={ETextTransform.UPPERCASE}
+					color={ EColors.WHITE }
+					size={ textSize[size] }
+					weight={ ETextWeight.BOLD }
+					textTransform={ ETextTransform.UPPERCASE }
 				>
-					{berRankDictionary[+rank]?.text || berRankDictionary[0].text}
+					{ berRankDictionary[+rank]?.text || berRankDictionary[0].text }
 				</UiTypography>
 			</div>
 		</div>
