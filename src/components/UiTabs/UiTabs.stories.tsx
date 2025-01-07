@@ -39,12 +39,12 @@ export const Primary: Story = {
 			<div>
 
 				<UiTabs
-					tabsModel={value1}
-					tabs={tabs}
-					onTabChange={handleChange1}
+					tabsModel={ value1 }
+					tabs={ tabs }
+					onTabChange={ handleChange1 }
 				/>
 				<br/>
-				{value1}
+				{ value1 }
 
 			</div>
 		);

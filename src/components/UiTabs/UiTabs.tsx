@@ -14,7 +14,7 @@ export const UiTabs: React.FC<UiTabsProps> = ({
 }) => {
 
 	return (
-		<ul className={cx(
+		<ul className={ cx(
 			"ui-tabs",
 			"grid",
 			"grid-flow-col",
@@ -22,43 +22,43 @@ export const UiTabs: React.FC<UiTabsProps> = ({
 			"bg-secondary-alt-200",
 			"p-[2px]"
 
-		)}>
-			{tabs.map((tab) => (
+		) }>
+			{ tabs.map((tab) => (
 				<li
-					key={tab}
-					className={cx(
+					key={ tab }
+					className={ cx(
 						"rounded-full",
 						"text-center",
 						tabsModel === tab && "bg-white"
-					)}
+					) }
 				>
-					<label className={cx(
+					<label className={ cx(
 						"block",
 						"cursor-pointer",
 						"px-md",
 						"py-xxs"
-					)}>
-						<input className={cx(
+					) }>
+						<input className={ cx(
 							"absolute",
 							"appearance-none"
-						)}
+						) }
 						type="radio"
-						value={tab}
-						checked={tabsModel === tab}
-						onChange={()=> onTabChange(tab)}>
+						value={ tab }
+						checked={ tabsModel === tab }
+						onChange={ ()=> onTabChange(tab) }>
 						</input>
 
-						<span className={cx(
+						<span className={ cx(
 							"font-bold",
 							"text-xs"
-						)}>
-							{tab}
+						) }>
+							{ tab }
 						</span>
 
 					</label>
 
 				</li>
-			))}
+			)) }
 		</ul>
 	);
 };
