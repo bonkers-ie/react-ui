@@ -25,28 +25,28 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 }) => {
 
 	return (
-		<label className={cx(
+		<label className={ cx(
 			"ui-radio-fancy",
 			"relative",
 			{
 				"pointer-events-none": disabled
 			}
-		)}
-		htmlFor={name + value}
+		) }
+		htmlFor={ name + value }
 		>
-			<input className={cx(
+			<input className={ cx(
 				"peer",
 				" absolute",
 				"appearance-none"
-			)}
-			id={name + value}
+			) }
+			id={ name + value }
 			type="radio"
-			value={value}
-			checked={checked}
-			onChange={()=> onChange(value)}
+			value={ value }
+			checked={ checked }
+			onChange={ ()=> onChange(value) }
 			/>
 
-			<div className={cx(
+			<div className={ cx(
 				"box-border",
 				"size-full",
 				"cursor-pointer",
@@ -57,7 +57,7 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				"p-sm",
 				"hover:border-primary-700",
 				"peer-focus:shadow-border-primary",
-				"active:bg-secondary-alt-200",
+				"peer-active:bg-secondary-alt-200",
 				"flex",
 				"items-center",
 				"gap-sm",
@@ -65,22 +65,23 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				{
 					"border-secondary-alt-400": disabled && !checked,
 					"border-primary-300": disabled && checked,
-					"border-primary-600": !disabled
+					"border-secondary-alt-600": !disabled && !checked,
+					"border-primary-600": !disabled && checked
 				}
 
-			)}>
+			) }>
 
 				<UiRadio
-					disabled={disabled}
-					value={value}
-					name={name}
-					onChange={()=> onChange(value)}
-					checked={checked}
+					disabled={ disabled }
+					value={ value }
+					name={ name }
+					onChange={ ()=> onChange(value) }
+					checked={ checked }
 				/>
 
 				<div className="flex flex-col">
-					{children}
-					<div className="text-xs font-normal text-secondary-alt-400">{subHeader}</div>
+					{ children }
+					<div className="text-xs font-normal text-secondary-alt-400">{ subHeader }</div>
 				</div>
 
 			</div>
