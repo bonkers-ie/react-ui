@@ -8,7 +8,7 @@ export type  TUiPlainRadio = {
 	subHeader?: string;
 	value: string;
 	name: string;
-	checked: boolean
+	checked?: boolean
 	onChange: (value: string) => void;
 
 }& Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "checked" | "value" | "name">;
@@ -23,11 +23,6 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 	onChange
 
 }) => {
-	const handleUiRadioChange = () => {
-		if (!disabled) {
-			onChange(value);
-		}
-	};
 
 	return (
 		<label className={cx(
@@ -37,22 +32,25 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				"pointer-events-none": disabled
 			}
 		)}
+		htmlFor={name + value}
 		>
 			<input className={cx(
 				"peer",
 				" absolute",
 				"appearance-none"
 			)}
+			id={name + value}
 			type="radio"
 			value={value}
 			checked={checked}
-			onChange={handleUiRadioChange}
+			onChange={()=> onChange(value)}
 			/>
 
 			<div className={cx(
 				"box-border",
 				"size-full",
 				"cursor-pointer",
+				"pointer-events-none",
 				"rounded-lg",
 				"border-2",
 				"bg-white",
@@ -65,7 +63,7 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				"gap-sm",
 				"text-sm",
 				{
-					"border-secondary-alt-400": disabled,
+					"border-secondary-alt-400": disabled && !checked,
 					"border-primary-300": disabled && checked,
 					"border-primary-600": !disabled
 				}
@@ -73,11 +71,10 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 			)}>
 
 				<UiRadio
-					className="pointer-events-none"
 					disabled={disabled}
 					value={value}
 					name={name}
-					onChange={handleUiRadioChange}
+					onChange={()=> onChange(value)}
 					checked={checked}
 				/>
 
