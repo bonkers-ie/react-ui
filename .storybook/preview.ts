@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/react";
+import { light, dark } from "./bonkersTheme";
+import { DocsContainer } from "./docsContainer";
 import "../src/main.css";
 import "../fontAwesome";
 
@@ -14,19 +16,14 @@ const preview: Preview = {
 				locales: "",
 			},
 		},
+		docs: {
+			container: DocsContainer,
+		},
 		darkMode: {
+			classTarget: "body",
 			stylePreview: true,
-			dark: {
-				appBg: "#202124",
-				appContentBg: "#303134",
-				barBg: "#161616",
-				barSelectedColor: "#56c55d",
-				barTextColor: "#56c55d",
-				inputBg: "#161616",
-				inputBorder: "#303134",
-				inputTextColor: "#56c55d",
-				textColor: "#ccc",
-			}
+			dark: dark,
+			light: light,
 		},
 		stylePreview: true,
 		actions: {
@@ -41,7 +38,7 @@ const preview: Preview = {
 				},
 				{
 					name: "Light",
-					value: "#ffffff"
+					value: "#ccc"
 				},
 				{
 					name: "Dark",
@@ -49,7 +46,6 @@ const preview: Preview = {
 				}
 			],
 		},
-		layout: "padded",
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
