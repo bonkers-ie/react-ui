@@ -36,8 +36,8 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
 	render: (args)=>(
 		<UiBerRank
-			rank={args.rank}
-			size={args.size}
+			rank={ args.rank }
+			size={ args.size }
 		/>
 	)
 };

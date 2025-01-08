@@ -1,6 +1,6 @@
 export enum EAlertTypes {
-    PRIMARY = "PRIMARY",
-    SECONDARY = "SECONDARY",
-    ERROR = "ERROR",
-    WARNING = "WARNING",
+	PRIMARY = "PRIMARY",
+	SECONDARY = "SECONDARY",
+	ERROR = "ERROR",
+	WARNING = "WARNING",
 }

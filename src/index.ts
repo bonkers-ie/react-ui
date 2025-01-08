@@ -7,4 +7,8 @@ export * as UiList from "./components/UiList";
 export * as UiRadio from "./components/UiRadio";
 export * as UiPlainRadio from "./components/UiPlainRadio";
 export * as UiPills from "./components/UiPills";
+export * as UiProductCard from "./components/UiProductCard";
+export * as UiRadioFancy from "./components/UiRadioFancy";
 export * as UiTypography from "./components/UiTypography";
+export * as UiToggle from "./components/UiToggle";
+export * as UiTabs from "./components/UiTabs";

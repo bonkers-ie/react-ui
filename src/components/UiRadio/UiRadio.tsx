@@ -50,18 +50,18 @@ export const UiRadio: React.FC<TUiRadioProps> = ({
 				justificationClasses[justify],
 				disabled && "pointer-events-none",
 				children && "items-center gap-xxs"
-			)}>
+			) }>
 			<input
-				id={value}
-				name={name.toString()}
+				id={ value }
+				name={ name.toString() }
 				type="radio"
-				value={value}
-				disabled={disabled}
-				checked={checked}
-				onChange={handleChange}
+				value={ value }
+				disabled={ disabled }
+				checked={ checked }
+				onChange={ handleChange }
 				className="peer absolute appearance-none"
 			/>
-			<span className={cx(
+			<span className={ cx(
 				styles.UiRadio__custom,
 				invertOrder && "order-last",
 				"relative",
@@ -80,8 +80,8 @@ export const UiRadio: React.FC<TUiRadioProps> = ({
 				"peer-focus:shadow-border-primary",
 				"peer-disabled:border-secondary-alt-400",
 				"peer-disabled:bg-secondary-alt-200"
-			)}>
-				<span className={cx(
+			) }>
+				<span className={ cx(
 					styles.UiRadio__dot,
 					"absolute",
 					"left-2/4",
@@ -90,9 +90,9 @@ export const UiRadio: React.FC<TUiRadioProps> = ({
 					"size-xxs",
 					"rounded-full",
 					"bg-primary	"
-				)} />
+				) } />
 			</span>
-			{children}
+			{ children }
 		</label>
 	);
 };
