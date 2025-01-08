@@ -49,35 +49,40 @@ export const UiInputRange: React.FC<TUiInputRangeProps> = ({
 	};
 
 	return (
-		<div className={cx("relative box-content h-xl py-xxs", rest.disabled && "opacity-60 cursor-default pointer-events-none")}>
+		<div
+			className={ cx(
+				"relative box-content h-xl py-xxs",
+				rest.disabled && "opacity-60 cursor-default pointer-events-none",
+			) }
+		>
 			<input
-				{...rest}
-				ref={track}
+				{ ...rest }
+				ref={ track }
 				className="absolute left-0 top-0 size-full cursor-pointer appearance-none bg-transparent"
-				style={{
-					touchAction: "none"
-				}}
+				style={ {
+					touchAction: "none",
+				} }
 				type="range"
-				min={min}
-				max={max}
-				step={step}
-				value={value}
-				onChange={(e) => handleOnChange(+e.target.value)}
-				onTouchStart={(e) => e.stopPropagation()}
-				onTouchMove={(e) => e.stopPropagation()}
+				min={ min }
+				max={ max }
+				step={ step }
+				value={ value }
+				onChange={ (e) => handleOnChange(+e.target.value) }
+				onTouchStart={ (e) => e.stopPropagation() }
+				onTouchMove={ (e) => e.stopPropagation() }
 			/>
 
 			<div className="pointer-events-none absolute left-0 top-1/2 h-xxs w-full -translate-y-1/2 rounded bg-secondary-alt" />
 
 			<div
 				className="pointer-events-none absolute left-0 top-1/2 h-xxs -translate-y-1/2 rounded bg-primary"
-				style={{
-					width: `${trackWidth}%`
-				}}
+				style={ {
+					width: `${trackWidth}%`,
+				} }
 			/>
 
 			<div
-				className={cx(
+				className={ cx(
 					styles.thumb,
 					"pointer-events-none",
 					"absolute",
@@ -86,12 +91,12 @@ export const UiInputRange: React.FC<TUiInputRangeProps> = ({
 					"-translate-y-1/2",
 					"rounded-full",
 					"bg-white",
-					"border-primary"
-				)}
-				ref={thumb}
-				style={{
-					left: `${thumbPosition}%`
-				}}
+					"border-primary",
+				) }
+				ref={ thumb }
+				style={ {
+					left: `${thumbPosition}%`,
+				} }
 			>
 				<div className="absolute left-1/2 top-1/2 size-xxs -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
 			</div>

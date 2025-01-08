@@ -10,19 +10,19 @@ const meta = {
 			control: {
 				type: "number"
 			},
-			description: "The Element min value",
+			description: "The minimum range value",
 		},
 		max: {
 			control: {
 				type: "number"
 			},
-			description: "The Element max value",
+			description: "The maximum range value",
 		},
 		step: {
 			control: {
 				type: "number"
 			},
-			description: "The Element max value",
+			description: "The step increment of the range",
 		}
 	}
 } satisfies Meta<typeof UiInputRange>;
@@ -41,14 +41,14 @@ export const Default: Story = {
 		return (
 			<div>
 				<UiInputRange
-					{...args}
-					value={value}
-					onChangeHandler={handleChange}
+					{ ...args }
+					value={ value }
+					onChangeHandler={ handleChange }
 				/>
-				<div style={{
+				<div style={ {
 					marginTop: "2rem"
-				}}>
-					Current value: {value}
+				} }>
+					Current value: { value }
 				</div>
 			</div>
 		);
@@ -73,14 +73,14 @@ export const NegativeRange: Story = {
 		return (
 			<div>
 				<UiInputRange
-					{...args}
-					value={value}
-					onChangeHandler={handleChange}
+					{ ...args }
+					value={ value }
+					onChangeHandler={ handleChange }
 				/>
-				<div style={{
+				<div style={ {
 					marginTop: "2rem"
-				}}>
-					Current value: {value}
+				} }>
+					Current value: { value }
 				</div>
 			</div>
 		);
@@ -105,14 +105,14 @@ export const DecimalSteps: Story = {
 		return (
 			<div>
 				<UiInputRange
-					{...args}
-					value={value}
-					onChangeHandler={handleChange}
+					{ ...args }
+					value={ value }
+					onChangeHandler={ handleChange }
 				/>
-				<div style={{
+				<div style={ {
 					marginTop: "2rem"
-				}}>
-					Current value: {value}
+				} }>
+					Current value: { value }
 				</div>
 			</div>
 		);
@@ -131,7 +131,7 @@ export const Disabled: Story = {
 	render: (args) => {
 		return (
 			<div>
-				<UiInputRange {...args} />
+				<UiInputRange { ...args } />
 			</div>
 		);
 	},
