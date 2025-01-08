@@ -7,18 +7,18 @@ interface IUiListItemProps {
 export const UiListItem: React.FC<IUiListItemProps> = ({ children, prefix }) => {
 
 	return (
-		<li className="ui-list-item flex gap-xxxs">
+		<li className="flex gap-xxxs">
 			{
 				prefix
-					? <span className="ui-list-item__prefix-wrapper w-[1em]">
-						{prefix}
+					? <span className="w-[1em]">
+						{ prefix }
 					</span>
 					: null
 			}
 			{
 				children
-					? <span className="ui-list-item__children">
-						{children}
+					? <span>
+						{ children }
 					</span>
 					: null
 			}

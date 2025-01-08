@@ -34,7 +34,7 @@ export const UiPills: React.FC<IUiPills> = ({
 	icon, rounded = false
 }) => {
 	return (
-		<div className={cx(
+		<div className={ cx(
 			"ui-pills",
 			"grid grid-flow-col justify-start w-max",
 			"items-center",
@@ -43,15 +43,15 @@ export const UiPills: React.FC<IUiPills> = ({
 			"overflow-hidden",
 			rounded ? "rounded-full": "rounded",
 			kindClasses[kind],
-		)}>
-			{icon}
-			{children
+		) }>
+			{ icon }
+			{ children
 				? (
-					<UiTypography size={sizeEnums[size]} weight={ETextWeight.SEMI_BOLD} className="whitespace-nowrap">
-						{children}
+					<UiTypography size={ sizeEnums[size] } weight={ ETextWeight.SEMI_BOLD } className="whitespace-nowrap">
+						{ children }
 					</UiTypography>
 				)
-				: null}
+				: null }
 		</div>
 	);
 };

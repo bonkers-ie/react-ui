@@ -35,11 +35,11 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
 	render: (args) => (
 		<UiAlert
-			kind={args.kind}
-			icon={["far", "face-smile"]}
+			kind={ args.kind }
+			icon={ ["far", "face-smile"] }
 		>
 			<span className="text-secondary">
-				{args.children}
+				{ args.children }
 			</span>
 
 		</UiAlert>

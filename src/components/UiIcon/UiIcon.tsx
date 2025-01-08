@@ -29,14 +29,14 @@ export const UiIcon: React.FC<IUiIconProps> = ({ size, name }) => {
 
 	return (
 		<FontAwesomeIcon
-			icon={name}
-			className={cx(
+			icon={ name }
+			className={ cx(
 				"ui-icon",
 				"inline",
 				"overflow-visible",
 				"align-[-.125em]",
 				size && sizeToClassName[size]
-			)}
+			) }
 		/>
 	);
 };

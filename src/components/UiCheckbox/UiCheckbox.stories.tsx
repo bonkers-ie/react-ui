@@ -71,14 +71,14 @@ export const Primary: Story = {
 
 		const handleChange = (isChecked: boolean) => {
 			setChecked(isChecked);
-			args.onChange(isChecked);
+			args.onChange?.(isChecked);
 		};
 
 		return (
 			<UiCheckbox
-				{...args}
-				checked={checked}
-				onChange={handleChange}
+				{ ...args }
+				checked={ checked }
+				onChange={ handleChange }
 			/>
 		);
 	}
@@ -103,26 +103,26 @@ export const CheckboxGroup: Story = {
 		return (
 			<div className="flex flex-col gap-sm">
 				<UiCheckbox
-					{...args}
+					{ ...args }
 					name="option1"
-					checked={checkedItems.option1}
-					onChange={(isChecked) => handleChange(isChecked, "option1")}
+					checked={ checkedItems.option1 }
+					onChange={ (isChecked) => handleChange(isChecked, "option1") }
 				>
 					Option 1
 				</UiCheckbox>
 				<UiCheckbox
-					{...args}
+					{ ...args }
 					name="option2"
-					checked={checkedItems.option2}
-					onChange={(isChecked) => handleChange(isChecked, "option2")}
+					checked={ checkedItems.option2 }
+					onChange={ (isChecked) => handleChange(isChecked, "option2") }
 				>
 					Option 2
 				</UiCheckbox>
 				<UiCheckbox
-					{...args}
+					{ ...args }
 					name="option3"
-					checked={checkedItems.option3}
-					onChange={(isChecked) => handleChange(isChecked, "option3")}
+					checked={ checkedItems.option3 }
+					onChange={ (isChecked) => handleChange(isChecked, "option3") }
 				>
 					Option 3
 				</UiCheckbox>

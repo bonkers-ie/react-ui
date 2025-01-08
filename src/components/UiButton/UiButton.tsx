@@ -140,9 +140,9 @@ export const UiButton: React.FC<TButtonProps> = ({
 }) => {
 	return (
 		<button
-			{...rest}
-			onClick={onClick}
-			className={cx(
+			{ ...rest }
+			onClick={ onClick }
+			className={ cx(
 				css.UiButton,
 				"text-base",
 				"touch-manipulation",
@@ -157,10 +157,10 @@ export const UiButton: React.FC<TButtonProps> = ({
 					"w-full": fullWidth,
 					"pointer-events-none": disabled,
 				}
-			)}
-			disabled={disabled}
+			) }
+			disabled={ disabled }
 		>
-			{children}
+			{ children }
 		</button>
 	);
 };

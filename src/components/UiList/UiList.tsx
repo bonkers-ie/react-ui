@@ -24,13 +24,13 @@ export const UiList: React.FC<IUiListProps> = ({
 	size = EListItemSize.SM
 }) => {
 	return (
-		<ul className={cx(
+		<ul className={ cx(
 			"ui-list",
 			"grid",
 			spacingClasses[spacing],
 			sizeClasses[size],
-		)}>
-			{children}
+		) }>
+			{ children }
 		</ul>
 	);
 };

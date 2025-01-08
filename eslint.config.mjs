@@ -35,7 +35,7 @@ export default [
 					maxEOF: 0,
 				},
 			],
-			indent: ["error", "tab"],
+			// indent: ["error", "tab"],
 			"object-curly-spacing": ["error", "always"],
 			semi: ["error", "always"],
 			"max-len": ["error", {
@@ -49,6 +49,13 @@ export default [
 				"ignoreTrailingComments": true,
 				ignorePattern: 'd="([\\s\\S]*?)"',
 			}],
+			"@stylistic/indent": ["error", "tab"],
+			"@stylistic/no-mixed-spaces-and-tabs": "error",
+			"react/jsx-curly-spacing": [2, {
+				"when": "always",
+				"children": true
+			}],
+			"react/jsx-indent": ["error", "tab"],
 			"tailwindcss/no-custom-classname": "off",
 			"object-curly-newline": ["error", {
 				"ObjectExpression": {
