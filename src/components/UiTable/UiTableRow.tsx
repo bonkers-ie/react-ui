@@ -9,7 +9,7 @@ type TRowProps = {
 export const UiTableRow: React.FC<TRowProps> = ({ kind, children, ...rest }) => {
 	return (
 		<tr
-			className={cn(
+			className={ cn(
 				"text-center",
 				"[&>td:last-of-type]:rounded-r-xxs",
 				"[&>td:last-of-type]:text-right",
@@ -20,9 +20,9 @@ export const UiTableRow: React.FC<TRowProps> = ({ kind, children, ...rest }) => 
 				}
 			)
 			}
-			{...rest}
+			{ ...rest }
 		>
-			{children}
+			{ children }
 		</tr>
 	);
 };

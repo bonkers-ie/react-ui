@@ -3,7 +3,7 @@ import { ETableKind } from "./_types";
 import cn from "classnames";
 
 type TTableProps = {
-	kind?: ETableKind,
+	kind?: ETableKind;
 	header?: React.ReactNode;
 } & React.HTMLAttributes<HTMLTableElement>;
 
@@ -20,16 +20,10 @@ export const UiTable: React.FC<TTableProps> = ({
 	...rest
 }) => {
 	return (
-		<table
-			{...rest}
-		>
-			{header && (
-				<thead>
-					{header}
-				</thead>
-			)}
-			<tbody className={cn("rounded-xl", kindClasses[kind])}>
-				{children}
+		<table { ...rest }>
+			{ header && (<thead>{ header }</thead>) }
+			<tbody className={ cn("rounded-xl", kindClasses[kind]) }>
+				{ children }
 			</tbody>
 		</table>
 	);

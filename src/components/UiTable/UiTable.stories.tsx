@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { UiTable, UiTableRow, UiTableCell } from "./index.ts";
 import { ETableKind } from "./_types";
-import { ETextWeight } from "../UiTypography";
+import { EColors, ETextWeight, ETypographySizes, UiTypography } from "../UiTypography";
 
 const meta = {
 	title: "Components/UiTable",
@@ -54,22 +54,39 @@ export const Primary: Story = {
 			</>
 		);
 
+		const head = (
+			<UiTableRow>
+				{ ["Header 1", "Header 2", "Header 3"].map((header, index) => (
+					<UiTableCell key={ index } weight={ ETextWeight.SEMI_BOLD }>
+						<UiTypography
+							tag="div"
+							size={ ETypographySizes.MD }
+							color={ EColors.PRIMARY_ALT_700 }
+						>
+							{ header }
+						</UiTypography>
+					</UiTableCell>
+				))
+				}
+			</UiTableRow>
+		);
+
 		return (
-			<UiTable className="w-full" kind={args.kind}>
-				{list.map((row, index) => (
-					<UiTableRow key={index}>
-						<UiTableCell weight={ETextWeight.SEMI_BOLD}>
-							{row.text1}
+			<UiTable className="w-full" kind={ args.kind } header={ head }>
+				{ list.map((row, index) => (
+					<UiTableRow key={ index }>
+						<UiTableCell weight={ ETextWeight.SEMI_BOLD }>
+							{ row.text1 }
 						</UiTableCell>
 						<UiTableCell>
-							{row.text2}
+							{ row.text2 }
 						</UiTableCell>
 
-						<UiTableCell weight={ETextWeight.SEMI_BOLD} subText={row.extraText && (subText)}>
-							{row.text3}
+						<UiTableCell weight={ ETextWeight.SEMI_BOLD } subText={ row.extraText && (subText) }>
+							{ row.text3 }
 						</UiTableCell>
 					</UiTableRow>
-				))}
+				)) }
 			</UiTable>
 		);
 	}

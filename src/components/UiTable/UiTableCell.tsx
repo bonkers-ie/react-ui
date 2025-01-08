@@ -11,26 +11,26 @@ type TCellProps = {
 
 export const UiTableCell: React.FC<TCellProps> = ({ align, subText, weight, children, ...rest }) => {
 	return (
-		<td {...rest}>
+		<td { ...rest }>
 			<UiTypography
 				tag="div"
-				size={ETypographySizes.SM}
-				align={align}
-				weight={weight}
+				size={ ETypographySizes.SM }
+				align={ align }
+				weight={ weight }
 				className='p-sm'
 			>
-				{children}
+				{ children }
 				{
 					subText
 						? (
 							<UiTypography
 								tag="div"
-								size={ETypographySizes.XXS}
-								weight={ETextWeight.SEMI_BOLD}
-								color={EColors.PRIMARY_ALT_700}
-								className={`flex flex-col gap-xxxs ${children ? "pt-sm" : ""}`}
+								size={ ETypographySizes.XXS }
+								weight={ ETextWeight.SEMI_BOLD }
+								color={ EColors.PRIMARY_ALT_700 }
+								className={ `flex flex-col gap-xxxs ${children ? "pt-sm" : ""}` }
 							>
-								{subText}
+								{ subText }
 							</UiTypography>
 						)
 						: null
