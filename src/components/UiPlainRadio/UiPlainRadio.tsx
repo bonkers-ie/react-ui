@@ -35,9 +35,10 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 		htmlFor={ name + value }
 		>
 			<input className={ cx(
-				"peer",
 				" absolute",
-				"appearance-none"
+				"appearance-none",
+				"peer",
+
 			) }
 			id={ name + value }
 			type="radio"
@@ -54,10 +55,10 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				"rounded-lg",
 				"border-2",
 				"bg-white",
-				"p-sm",
-				"hover:border-primary-700",
-				"peer-focus:shadow-border-primary",
 				"peer-active:bg-secondary-alt-200",
+				"p-sm",
+				"peer-hover:border-primary-700",
+				"peer-focus:shadow-border-primary",
 				"flex",
 				"items-center",
 				"gap-sm",
@@ -77,6 +78,7 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 					name={ name }
 					onChange={ ()=> onChange(value) }
 					checked={ checked }
+
 				/>
 
 				<div className="flex flex-col">

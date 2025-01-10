@@ -54,12 +54,12 @@ export const Primary: Story = {
 		return (
 			<div>
 				<UiPlainRadio
-					disabled={args.disabled}
+					disabled={ args.disabled }
 					name="Value1"
 					value="value1"
-					onChange={handleChange}
-					checked={selectedValue === "value1"}
-					children={args.children}
+					onChange={ handleChange }
+					checked={ selectedValue === "value1" }
+					children={ args.children }
 
 				>
 
@@ -68,13 +68,13 @@ export const Primary: Story = {
 				<br />
 
 				<UiPlainRadio
-					disabled={args.disabled}
+					disabled={ args.disabled }
 					name="Value2"
 					value="value2"
-					onChange={handleChange}
-					checked={selectedValue === "value2"}
-					children={args.children}
-					subHeader={args.subHeader}
+					onChange={ handleChange }
+					checked={ selectedValue === "value2" }
+					children={ args.children }
+					subHeader={ args.subHeader }
 				>
 
 				</UiPlainRadio>
