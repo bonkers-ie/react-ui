@@ -4,6 +4,7 @@ export * as UiButton from "./components/UiButton";
 export * as UiCheckbox from "./components/UiCheckbox";
 export * as UiIcon from "./components/UiIcon";
 export * as UiList from "./components/UiList";
+export * as UiNotificationBadge from "./components/UiNotificationBadge";
 export * as UiRadio from "./components/UiRadio";
 export * as UiPills from "./components/UiPills";
 export * as UiProductCard from "./components/UiProductCard";
