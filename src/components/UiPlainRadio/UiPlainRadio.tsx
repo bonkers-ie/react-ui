@@ -51,7 +51,6 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 				"box-border",
 				"size-full",
 				"cursor-pointer",
-				"pointer-events-none",
 				"rounded-lg",
 				"border-2",
 				"bg-white",
@@ -72,14 +71,16 @@ export const UiPlainRadio: React.FC<TUiPlainRadio> = ({
 
 			) }>
 
-				<UiRadio
-					disabled={ disabled }
-					value={ value }
-					name={ name }
-					onChange={ ()=> onChange(value) }
-					checked={ checked }
+				<span className="pointer-events-none">
+					<UiRadio
+						disabled={ disabled }
+						value={ value }
+						name={ name }
+						onChange={ ()=> onChange(value) }
+						checked={ checked }
 
-				/>
+					/>
+				</span>
 
 				<div className="flex flex-col">
 					{ children }
