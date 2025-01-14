@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import cx from "classnames";
 import { EColors, ETextWeight, ETypographySizes, UiTypography } from "../UiTypography";
 
@@ -6,7 +6,7 @@ interface IUiProgress {
 	min: number
 	max: number
 	current: number
-	progressText: string
+	progressText?: string
 
 }
 
@@ -17,9 +17,7 @@ export const UiProgress: React.FC<IUiProgress> = ({
 	current
 
 }) => {
-	const filler = useMemo(() => {
-		return ((current - min) / (max - min)) * 100;
-	}, [current, min, max]);
+	const filler = ((current - min) / (max - min)) * 100;
 
 	return (
 		<div className={ cx(
@@ -53,13 +51,15 @@ export const UiProgress: React.FC<IUiProgress> = ({
 
 				</div>
 			</div>
-			<UiTypography
-				color={ EColors.PRIMARY_700 }
-				size={ ETypographySizes.SM }
-				weight={ ETextWeight.SEMI_BOLD }
-			>
-				{ progressText }
-			</UiTypography>
+			{ progressText && (
+				<UiTypography
+					color={ EColors.PRIMARY_700 }
+					size={ ETypographySizes.SM }
+					weight={ ETextWeight.SEMI_BOLD }
+				>
+					{ progressText }
+				</UiTypography>
+			) }
 
 		</div>
 
