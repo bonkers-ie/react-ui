@@ -1,17 +1,13 @@
 import React from "react";
 import { EAccordionType } from "./_types";
-import type { TUiAccordionProps } from "./UiAccordion";
+import type { TUiAccordionProps } from "./UiAccordionBase";
 
 export const UiAccordionContext = React.createContext<{
-	active: string | string[],
-	type: EAccordionType,
-	handleTrigger: (id: string) => void
-} | null>(null);
-
-export const UiAccordionItemContext = React.createContext<{
-	id: string | null
-	isOpen: boolean
-	toggle: () => void
+	openItems?: string[],
+	isOpen?: boolean,
+	id?: string | null,
+	type?: EAccordionType,
+	handleTrigger: (id?: string) => void
 } | null>(null);
 
 export const UiAccordionProvider = ({
@@ -20,24 +16,24 @@ export const UiAccordionProvider = ({
 	defaultValue,
 	handleTrigger
 }:  TUiAccordionProps) => {
-	const [active, setActive] = React.useState<string[]>(defaultValue || []);
+	const [openAccordions, setOpenAccordions] = React.useState<string[]>(defaultValue || []);
 
-	const handleClick = (id: string) => {
+	const handleClick = (id?: string) => {
+		if (!id) return;
 		if (type === EAccordionType.SINGLE) {
-			setActive(active?.includes(id) ? [] : [id]);
-			if (handleTrigger) handleTrigger(id);
+			setOpenAccordions(openAccordions?.includes(id) ? [] : [id]);
 		} else {
-			setActive(prev =>
-				prev?.includes(id)
-					? prev.filter(item => item !== id)
-					: [...(prev || []), id]
+			setOpenAccordions(currAccordions =>
+				currAccordions?.includes(id)
+					? currAccordions.filter(item => item !== id)
+					: [...(currAccordions || []), id]
 			);
-			if (handleTrigger) handleTrigger(id);
 		}
+		if (handleTrigger) handleTrigger(id);
 	};
 
 	const contextValue = {
-		active,
+		openItems: openAccordions,
 		type,
 		handleTrigger: handleClick
 	};
@@ -50,18 +46,17 @@ export const UiAccordionProvider = ({
 };
 
 export const UiAccordionItemProvider = ({ children, id }: { children: React.ReactNode, id: string }) => {
-	const { active, handleTrigger } = useAccordionContext();
-	const isOpen = active.includes(id);
-	const toggle = () => handleTrigger(id);
+	const { openItems, handleTrigger } = useAccordionContext();
+	const isOpen = openItems?.includes(id);
 
 	return (
-		<UiAccordionItemContext.Provider value={ {
+		<UiAccordionContext.Provider value={ {
 			id,
 			isOpen,
-			toggle
+			handleTrigger: () => handleTrigger(id)
 		} }>
 			{ children }
-		</UiAccordionItemContext.Provider>
+		</UiAccordionContext.Provider>
 	);
 };
 
@@ -69,14 +64,6 @@ export const useAccordionContext = () => {
 	const context = React.useContext(UiAccordionContext);
 	if (!context) {
 		throw new Error("useAccordionContext must be used within an <Accordion /> component");
-	}
-	return context;
-};
-
-export const useAccordionItemContext = () => {
-	const context = React.useContext(UiAccordionItemContext);
-	if (!context) {
-		throw new Error("useAccordionItemContext must be used within an <AccordionItem /> component");
 	}
 	return context;
 };

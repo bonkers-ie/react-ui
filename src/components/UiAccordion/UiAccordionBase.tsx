@@ -1,6 +1,7 @@
 import React from "react";
 import { UiAccordionProvider } from "./UiAccordionContext";
 import { EAccordionType } from "./_types";
+import cx from "classnames";
 
 export type TUiAccordionProps = {
 	children: React.ReactNode;
@@ -16,7 +17,7 @@ export const UiAccordion: React.FC<TUiAccordionProps> = ({
 }) => {
 
 	return (
-		<div className={ className }>
+		<div className={ cx(className, "w-full") }>
 			<UiAccordionProvider { ...props }>
 				{ children }
 			</UiAccordionProvider>

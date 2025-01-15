@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { UiAccordionItemProvider, useAccordionItemContext } from "./UiAccordionContext";
+import { UiAccordionItemProvider, useAccordionContext } from "./UiAccordionContext";
 
 export type TUiAccordionItemProps = {
 	id: string | null;
@@ -13,17 +13,20 @@ type TAccordionItemComposition = {
 
 export const UiAccordionItem: React.FC<TUiAccordionItemProps> & TAccordionItemComposition = ({
 	children,
-	id
+	id,
+	...rest
 }) => {
 	return (
 		<UiAccordionItemProvider id={ id }>
-			{ children }
+			<div { ...rest }>
+				{ children }
+			</div>
 		</UiAccordionItemProvider>
 	);
 };
 
 const Trigger: TAccordionItemComposition["Trigger"] = ({  children, className } ) => {
-	const { toggle, isOpen } = useAccordionItemContext();
+	const { handleTrigger, isOpen } = useAccordionContext();
 
 	const childrenWithProps = () => {
 		return (
@@ -39,7 +42,7 @@ const Trigger: TAccordionItemComposition["Trigger"] = ({  children, className } 
 		<header
 			typeof="button"
 			className={ cx("cursor-pointer", className) }
-			onClick={ toggle }
+			onClick={ () => handleTrigger() }
 		>
 			{ childrenWithProps() }
 		</header>
@@ -50,7 +53,7 @@ const Content: TAccordionItemComposition["Content"] = ({
 	children,
 	className
 }) => {
-	const { isOpen } = useAccordionItemContext();
+	const { isOpen } = useAccordionContext();
 
 	return (
 		<div

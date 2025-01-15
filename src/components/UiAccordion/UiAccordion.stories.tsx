@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { UiAccordion } from "./UiAccordion";
+import { UiAccordion } from "./UiAccordionBase";
 import { UiAccordionItem } from "./UiAccordionItem";
 import { EColors, UiTypography } from "../UiTypography";
+import { UiIcon } from "../UiIcon";
 import React from "react";
 import { EAccordionType } from "./_types";
+import { ESize } from "../../_types/sizing";
+import cx from "classnames";
 
 const meta = {
 	title: "Components/UiAccordion",
@@ -48,28 +51,28 @@ export const Basic: Story = {
 		return (
 			<div>
 				<UiAccordion handleTrigger={ handleTrigger } className="col-auto flex flex-col justify-start gap-xs" type={ EAccordionType.SINGLE }>
-					<UiAccordionItem className="" id="section1">
-						<UiAccordionItem.Trigger>
+					<UiAccordionItem className="rounded bg-secondary-alt-200 px-sm py-xs" id="section1">
+						<UiAccordionItem.Trigger className="flex flex-row items-center justify-between">
 							{ (isOpen) =>
 								<>
-									<UiTypography color={ EColors.PRIMARY }>Header 1</UiTypography>
+									<UiTypography color={ EColors.PRIMARY }>Item</UiTypography>
 									{
-										isOpen
-											? <UiTypography color={ EColors.PRIMARY }>Open</UiTypography>
-											: <UiTypography color={ EColors.PRIMARY }>Closed</UiTypography>
+										<div className={ cx( "transition","text-primary-700", isOpen ? "rotate-180" : "rotate-0") }>
+											<UiIcon name={ ["far", "face-smile"] } size={ ESize.XS } />
+										</div>
 									}
 								</>
 							}
 						</UiAccordionItem.Trigger>
 						<UiAccordionItem.Content>
-							<UiTypography className="rounded-lg bg-secondary-alt-200 p-md">Content for section 1</UiTypography>
+							<UiTypography className="rounded-lg bg-secondary-alt-300 p-md">Content for Item</UiTypography>
 						</UiAccordionItem.Content>
 					</UiAccordionItem>
 
 					<UiAccordionItem id="section2">
-						<UiAccordionItem.Trigger>Test 1</UiAccordionItem.Trigger>
+						<UiAccordionItem.Trigger>Unstyled Item</UiAccordionItem.Trigger>
 						<UiAccordionItem.Content>
-							Content for section 2
+							Content for Unstyled Item
 						</UiAccordionItem.Content>
 					</UiAccordionItem>
 				</UiAccordion>
