@@ -19,7 +19,7 @@ export const UiNotificationBadge: React.FC<UiNotificationBadge> = ({
 	const shouldRender = showZero || (!isZero && notificationCount);
 
 	return (
-		<div className="relative size-xl rounded-full bg-primary">
+		<div >
 			{ shouldRender && (
 				<div
 					className={ cx(

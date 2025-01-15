@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiNotificationBadge } from "./UiNotificationBadge";
 import { EBadgeOrigin } from "./_types";
+import React from "react";
 
 const meta: Meta<typeof UiNotificationBadge> = {
 	title: "Components/UiNotificationBadge",
@@ -37,4 +38,10 @@ export default meta;
 
 type Story = StoryObj<typeof UiNotificationBadge>;
 
-export const Primary: Story = {};
+export const Primary: Story = {
+	render: (args) => (
+		<div className="relative size-xl rounded-full bg-primary">
+			<UiNotificationBadge { ...args } />
+		</div>
+	),
+};
