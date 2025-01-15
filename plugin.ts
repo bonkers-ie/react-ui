@@ -151,6 +151,9 @@ export default plugin(
 				maxWidth: ({ theme }) => ({
 					...theme("spacing"),
 				}),
+				borderRadius: ({ theme }) => ({
+					"xxs": theme("spacing.xxs"),
+				}),
 			},
 
 		},
