@@ -8,6 +8,7 @@ export * as UiRadio from "./components/UiRadio";
 export * as UiPlainRadio from "./components/UiPlainRadio";
 export * as UiPills from "./components/UiPills";
 export * as UiProductCard from "./components/UiProductCard";
+export * as UiProgress from "./components/UiProgress";
 export * as UiRadioFancy from "./components/UiRadioFancy";
 export * as UiSkeleton from "./components/UiSkeleton";
 export * as UiTable from "./components/UiTable";
