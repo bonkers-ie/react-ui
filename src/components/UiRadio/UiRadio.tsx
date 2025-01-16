@@ -48,8 +48,10 @@ export const UiRadio: React.FC<TUiRadioProps> = ({
 				"grid-flow-col",
 				"cursor-pointer",
 				justificationClasses[justify],
-				disabled && "pointer-events-none",
-				children && "items-center gap-xxs"
+				{
+					"pointer-events-none": disabled,
+					"items-center gap-xxs": children
+				}
 			) }>
 			<input
 				id={ value }
