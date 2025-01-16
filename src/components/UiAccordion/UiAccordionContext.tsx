@@ -1,6 +1,6 @@
 import React from "react";
 import { EAccordionType } from "./_types";
-import type { TUiAccordionProps } from "./UiAccordionBase";
+import type { TUiAccordionProps } from "./UiAccordion.base";
 
 export const UiAccordionContext = React.createContext<{
 	openItems?: string[],

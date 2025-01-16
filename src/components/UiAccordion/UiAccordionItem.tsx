@@ -3,7 +3,7 @@ import cx from "classnames";
 import { UiAccordionItemProvider, useAccordionContext } from "./UiAccordionContext";
 
 export type TUiAccordionItemProps = {
-	id: string | null;
+	id: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 type TAccordionItemComposition = {
@@ -14,11 +14,12 @@ type TAccordionItemComposition = {
 export const UiAccordionItem: React.FC<TUiAccordionItemProps> & TAccordionItemComposition = ({
 	children,
 	id,
+	className,
 	...rest
 }) => {
 	return (
 		<UiAccordionItemProvider id={ id }>
-			<div { ...rest }>
+			<div className={ cx("ui-accordion-item", className) }  { ...rest }>
 				{ children }
 			</div>
 		</UiAccordionItemProvider>
@@ -40,7 +41,7 @@ const Trigger: TAccordionItemComposition["Trigger"] = ({  children, className } 
 
 	return (
 		<header
-			typeof="button"
+			role="button"
 			className={ cx("cursor-pointer", className) }
 			onClick={ () => handleTrigger() }
 		>
@@ -64,10 +65,7 @@ const Content: TAccordionItemComposition["Content"] = ({
 			) }
 		>
 			<div className="overflow-hidden">
-				<div className="p-sm">
-					{ children }
-				</div>
-
+				{ children }
 			</div>
 		</div>
 	);

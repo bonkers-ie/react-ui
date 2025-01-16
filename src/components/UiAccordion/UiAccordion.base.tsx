@@ -17,7 +17,7 @@ export const UiAccordion: React.FC<TUiAccordionProps> = ({
 }) => {
 
 	return (
-		<div className={ cx(className, "w-full") }>
+		<div className={ cx("ui-accordion w-full", className) }>
 			<UiAccordionProvider { ...props }>
 				{ children }
 			</UiAccordionProvider>
