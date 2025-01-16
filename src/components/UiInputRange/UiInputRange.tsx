@@ -40,7 +40,7 @@ export const UiInputRange: React.FC<TUiInputRangeProps> = ({
 
 		setThumbPosition(Math.max(0, Math.min(100, adjustedPercentage)));
 		setTrackWidth(Math.max(0, Math.min(100, adjustedPercentage + thumbWidthPercentage)));
-	}, [track.current, thumb.current, min, max, value]);
+	}, [min, max, value]);
 
 	const handleOnChange = (newValue: number) => {
 		if (newValue === value) return;
