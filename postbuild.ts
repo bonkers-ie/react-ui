@@ -2,7 +2,7 @@ import { readdir } from "node:fs/promises";
 
 // copy files to dist for publishing
 Bun.write("./dist/package.json", Bun.file("./package.json"));
-Bun.write("./dist/postcss.config.js", Bun.file("./postcss.config.js"));
+Bun.write("./dist/postcss.config.mjs", Bun.file("./postcss.config.mjs"));
 Bun.write("./dist/tailwind.config.ts", Bun.file("./tailwind.config.ts"));
 Bun.write("./dist/eslint.config.mjs", Bun.file("./eslint.config.mjs"));
 // Bun.write("./dist/.stylelintrc", Bun.file("./.stylelintrc"));
