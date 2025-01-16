@@ -23,6 +23,6 @@ jobs:
               with:
                   bun-version: latest
             - run: bun i
-            - run: bun lint:script
+            - run: bun lint
             - run: bun lint:style
             - run: bun run test
