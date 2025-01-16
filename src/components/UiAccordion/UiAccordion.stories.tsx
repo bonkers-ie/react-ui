@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiAccordion } from "./UiAccordion.base";
-import { UiAccordionItem } from "./UiAccordionItem";
+import { UiAccordionItem } from "./UiAccordionItem.base";
 import { EColors, ETextWeight, ETypographySizes, UiTypography } from "../UiTypography";
 import { UiIcon } from "../UiIcon";
 import React from "react";
@@ -13,27 +13,23 @@ const meta = {
 	component: UiAccordion,
 	argTypes: {
 		defaultValue: {
+			description: "The array of values to be opened by default, must match the id of the accordion item",
 			control: {
-				description: "The array of values to be opened by default, must match the id of the accordion item",
 				type: "text",
 			},
 		},
 		type: {
 			options: [EAccordionType.SINGLE, EAccordionType.MULTI],
+			description: "The type of accordion, single open or multiple open at once",
 			control: {
 				type: "radio",
-				description: "The type of accordion, single open or multiple open at once",
 			},
 		},
 		handleTrigger: {
-			action: "handleTrigger",
 			description: "The function to be called when an accordion item is clicked",
 		},
 		children: {
-			control: {
-				type: "text",
-				description: "The child content of the accordion",
-			},
+			description: "The child content of the accordion",
 		},
 
 	},
