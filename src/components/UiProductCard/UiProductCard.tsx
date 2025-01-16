@@ -6,19 +6,15 @@ import {
 
 type TUiProductCardProps = {
 	badgeText?: string;
-	title?: string;
-	subtitle?: string;
+	title?: React.ReactNode;
+	subtitle?: React.ReactNode;
 	header?: React.ReactNode;
-	customTitle?: React.ReactNode;
-	customSubtitle?: React.ReactNode;
 }
 
 export const UiProductCard: React.FC<TUiProductCardProps> = ({ badgeText,
 	title,
 	subtitle,
-	header,
-	customTitle,
-	customSubtitle }) => {
+	header }) => {
 	return (
 		<div className='relative
 			flex
@@ -40,31 +36,24 @@ export const UiProductCard: React.FC<TUiProductCardProps> = ({ badgeText,
 			{ header }
 
 			<div className="grid gap-xxs">
-				{ customTitle || (
-					title && (
-						<UiTypography
-							size={ ETypographySizes.MD }
-							weight={ ETextWeight.BOLD }
-							align={ ETextAlign.LEFT }
-							lineHeight
-						>
-							{ title }
-						</UiTypography>
-					)
-				) }
+				<UiTypography
+					size={ ETypographySizes.MD }
+					weight={ ETextWeight.BOLD }
+					align={ ETextAlign.LEFT }
+					color={ EColors.SECONDARY }
+					lineHeight
+				>
+					{ title }
+				</UiTypography>
 
-				{ customSubtitle || (
-					subtitle && (
-						<UiTypography
-							size={ ETypographySizes.XS }
-							align={ ETextAlign.LEFT }
-							color={ EColors.SECONDARY_400 }
-							lineHeight
-						>
-							{ subtitle }
-						</UiTypography>
-					)
-				) }
+				<UiTypography
+					size={ ETypographySizes.XS }
+					align={ ETextAlign.LEFT }
+					color={ EColors.SECONDARY_400 }
+					lineHeight
+				>
+					{ subtitle }
+				</UiTypography>
 			</div>
 		</div >
 	);
