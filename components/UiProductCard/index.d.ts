@@ -1,0 +1,1 @@
+export { UiProductCard } from './UiProductCard';
