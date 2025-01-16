@@ -1,8 +1,6 @@
-<div align="center"><a name="readme-top"></a></div>
+<div align="center"><a name="readme-top">Bonkers-UI Design System</a></div>
 
 <br/>
-
-Bonkers-UI Design System
 
 <div align="center" style="display:flex; flex-direction: column;">
 	<a href="https://bonkers-ie.github.io/bonkers-ui" target="_blank">
