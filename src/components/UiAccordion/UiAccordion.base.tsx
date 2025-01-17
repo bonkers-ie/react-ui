@@ -1,5 +1,5 @@
 import React from "react";
-import { UiAccordionProvider } from "./UiAccordionContext";
+import { UiAccordionProvider } from "./UiAccordion.context";
 import { EAccordionType } from "./_types";
 import cx from "classnames";
 

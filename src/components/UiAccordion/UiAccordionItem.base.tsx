@@ -1,6 +1,6 @@
 import React from "react";
 import cx from "classnames";
-import { UiAccordionItemProvider, useAccordionContext } from "./UiAccordionContext";
+import { UiAccordionItemProvider, useAccordionContext } from "./UiAccordion.context";
 
 export type TUiAccordionItemProps = {
 	id: string;
