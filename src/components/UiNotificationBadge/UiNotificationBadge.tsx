@@ -1,14 +1,14 @@
 
 import React from "react";
 import cx from "classnames";
-import { EBadgeOrigin } from "./_types";
+import { EBadgeOffset } from "./_types";
 import { UiIcon } from "../UiIcon";
 import { EColors } from "../UiTypography";
 import { type IconProp } from "@fortawesome/fontawesome-svg-core";
 import { ESize } from "../../_types/sizing";
 
 type UiNotificationBadge = {
-	origin?: EBadgeOrigin,
+	offset?: EBadgeOffset,
 	notificationCount: React.ReactNode;
 	showZero?: boolean;
 	color?: EColors;
@@ -84,7 +84,7 @@ const colorClasses = {
 };
 
 export const UiNotificationBadge: React.FC<UiNotificationBadge> = ({
-	origin,
+	offset,
 	notificationCount,
 	showZero = false,
 	color,
@@ -117,8 +117,10 @@ export const UiNotificationBadge: React.FC<UiNotificationBadge> = ({
 						"gap-xxxs",
 						color && colorClasses[color],
 						{
-							"right-0 top-0": origin === EBadgeOrigin.DEFAULT,
-							"-right-xxxs -top-xxxs": origin === EBadgeOrigin.OFFSET_TOP_RIGHT,
+							"-right-xxxs -top-xxxs": offset === EBadgeOffset.DEFAULT,
+							"-right-xxxs top-md": offset === EBadgeOffset.OFFSET_BOTTOM_RIGHT,
+							"-left-xxxs -top-xxxs": offset === EBadgeOffset.OFFSET_TOP_LEFT,
+							"-left-xxxs top-md": offset === EBadgeOffset.OFFSET_BOTTOM_LEFT
 						}
 					) }
 				>
