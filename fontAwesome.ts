@@ -5,6 +5,7 @@ import { library, config, type IconDefinition } from "@fortawesome/fontawesome-s
 import { faFaceSmile } from "@fortawesome/free-regular-svg-icons/faFaceSmile";
 import { faFaceAngry } from "@fortawesome/free-regular-svg-icons/faFaceAngry";
 import { faFaceMeh } from "@fortawesome/free-regular-svg-icons/faFaceMeh";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons/faChevronDown";
 
 config.autoAddCss = false;
 
@@ -14,6 +15,7 @@ library
 		...[
 			faFaceAngry,
 			faFaceMeh,
-			faFaceSmile
+			faFaceSmile,
+			faChevronDown,
 		] as IconDefinition[]
 	);
