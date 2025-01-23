@@ -8,6 +8,8 @@ export enum EButtonTypes {
 	ERROR_OVERLAY = "error-overlay",
 	WARNING_OVERLAY = "warning-overlay",
 	LINK = "link",
+	LINK_PRIMARY = "link-primary",
+	LINK_WARNING = "link-warning",
 }
 export enum EButtonSizes {
 	DEFAULT = "default",

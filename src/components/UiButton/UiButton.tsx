@@ -130,6 +130,36 @@ const kindClasses = {
 
 		disabled:text-secondary-alt-300
 	`,
+	[EButtonTypes.LINK_PRIMARY]: `
+		bg-transparent
+		box-shadow-none
+		text-primary-600
+		underline
+
+		hover:bg-primary-50
+		hover:text-primary-700
+		hover:no-underline
+
+		active:bg-primary-100
+		active:text-primary-700
+
+		disabled:text-secondary-alt-300
+	`,
+	[EButtonTypes.LINK_WARNING]: `
+		bg-transparent
+		box-shadow-none
+		text-error
+		underline
+
+		hover:bg-error-50
+		hover:text-error-600
+		hover:no-underline
+
+		active:bg-error-200
+		active:text-error-700
+
+		disabled:text-secondary-alt-300
+	`,
 };
 
 const sizeClasses = {
@@ -191,7 +221,10 @@ export const UiButton: React.FC<TButtonProps> = ({
 				{
 					"w-full": fullWidth,
 					"pointer-events-none": disabled,
-					"shadow-md": kind !== EButtonTypes.LINK && !disabled
+					"shadow-md": kind !== EButtonTypes.LINK
+								&& kind !== EButtonTypes.LINK_PRIMARY
+								&& kind !== EButtonTypes.LINK_WARNING
+								&& !disabled
 				}
 			) }
 			disabled={ disabled }
