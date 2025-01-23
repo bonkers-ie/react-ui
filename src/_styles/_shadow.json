@@ -4,6 +4,5 @@
 	"border-primary-disabled": "var(--shadow-selected-disabled)",
 	"border-selected": "var(--shadow-border-selected)",
 	"selected-shadow": "var(--shadow-selected-shadow)",
-	"border-secondary": "var(--shadow-border-secondary)",
-	"button": "var(--shadow-button-shadow)"
+	"border-secondary": "var(--shadow-border-secondary)"
 }
