@@ -8,6 +8,8 @@ type TButtonProps = {
 	size?: EButtonSizes;
 	fullWidth?: boolean;
 	weight?: EButtonWeight;
+	prefix?: React.ReactNode;
+	postfix?: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement> &
 React.ButtonHTMLAttributes<HTMLElement> &
 React.AnchorHTMLAttributes<HTMLElement>
@@ -15,19 +17,19 @@ React.AnchorHTMLAttributes<HTMLElement>
 const kindClasses = {
 	[EButtonTypes.PRIMARY]: `
 		text-white
-		bg-primary
+		bg-primary-600
 
-		hover:bg-primary-600
-		active:bg-primary-700
-		disabled:bg-primary-300
+		hover:bg-primary-700
+		active:bg-primary-800
+		disabled:bg-secondary-alt-300
 	`,
 	[EButtonTypes.SECONDARY]: `
 		bg-secondary
 		text-white
 
-		hover:bg-secondary-600
-		active:bg-secondary-700
-		disabled:bg-secondary-300
+		hover:bg-secondary-400
+		active:bg-secondary-500
+		disabled:bg-secondary-alt-300
 	`,
 	[EButtonTypes.ERROR]: `
 		bg-error
@@ -35,7 +37,7 @@ const kindClasses = {
 
 		hover:bg-error-600
 		active:bg-error-700
-		disabled:bg-error-300
+		disabled:bg-secondary-alt-300
 	`,
 	[EButtonTypes.WARNING]: `
 		bg-warning
@@ -43,53 +45,59 @@ const kindClasses = {
 
 		hover:bg-warning-600
 		active:bg-warning-700
-		disabled:bg-warning-300
+		disabled:bg-secondary-alt-300
 	`,
 	[EButtonTypes.PRIMARY_OVERLAY]: `
+		bg-white
 		border
-		border-primary
-		text-primary
+		border-primary-600
+		text-primary-600
 
-		hover:border-transparent
-		hover:bg-primary-600
-		hover:text-white
+		hover:border-primary-700
+		hover:bg-primary-50
+		hover:text-primary-700
 
-		active:border-transparent
-		active:bg-primary-700
-		active:text-white
+		active:border-primary-700
+		active:bg-primary-100
+		active:text-primary-700
 
-		disabled:border-primary-300
-		disabled:text-primary-300
+		disabled:border-secondary-alt-300
+		disabled:text-secondary-alt-300
 	`,
 	[EButtonTypes.SECONDARY_OVERLAY]: `
+		bg-white
 		border
 		border-secondary
 		text-secondary
-		hover:border-transparent
-		hover:bg-secondary-600
 
-		hover:text-white
-		active:border-transparent
-		active:bg-secondary-700
+		hover:border-secondary-400
+		hover:bg-secondary-alt-200
+		hover:text-secondary-400
+
+		active:border-secondary-500
+		active:bg-secondary-alt-300
+		active:text-secondary-500
 
 		active:text-white
-		disabled:border-secondary-300
-		disabled:text-secondary-300
+		disabled:border-secondary-alt-300
+		disabled:text-secondary-alt-300
 	`,
 	[EButtonTypes.ERROR_OVERLAY]: `
-		border border-error
+		bg-white
+		border
+		border-error
 		text-error
 
-		hover:border-transparent
-		hover:bg-error-600
-		hover:text-white
+		hover:border-error-600
+		hover:bg-error-100
+		hover:text-error-600
 
-		active:border-transparent
-		active:bg-error-700
-		active:text-white
+		active:border-error-700
+		active:bg-error-200
+		active:text-error-700
 
-		disabled:border-error-300
-		disabled:text-error-300
+		disabled:border-secondary-alt-300
+		disabled:text-secondary-alt-300
 	`,
 	[EButtonTypes.WARNING_OVERLAY]: `
 		border
@@ -104,15 +112,21 @@ const kindClasses = {
 		active:bg-warning-700
 		active:text-white
 
-		disabled:border-warning-300
-		disabled:text-warning-300
+		disabled:border-secondary-alt-300
+		disabled:text-secondary-alt-300
 	`,
 	[EButtonTypes.LINK]: `
-		text-accent-alt
+		bg-transparent
+		box-shadow-none
+		text-secondary
+		text-decoration: underline
 
-		hover:text-accent-alt-600
-		active:text-accent-alt-700
-		disabled:text-accent-alt-300
+		hover:bg-secondary-alt-200
+		hover:text-secondary-400
+		hover:text-decoration: none
+		active:bg-secondary-alt-300
+		active:text-secondary-500
+		disabled:text-secondary-alt-300
 	`,
 };
 
@@ -136,6 +150,8 @@ export const UiButton: React.FC<TButtonProps> = ({
 	children,
 	weight = EButtonWeight.BOLD,
 	onClick,
+	prefix,
+	postfix,
 	...rest
 }) => {
 	return (
@@ -149,6 +165,10 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"whitespace-nowrap",
 				"rounded-xl",
 				"leading-none",
+				"inline-flex",
+				"justify-center",
+				"items-center",
+				"transition-all",
 
 				kindClasses[kind],
 				sizeClasses[size],
@@ -156,11 +176,14 @@ export const UiButton: React.FC<TButtonProps> = ({
 				{
 					"w-full": fullWidth,
 					"pointer-events-none": disabled,
+					"shadow-md": kind !== EButtonTypes.LINK && !disabled
 				}
 			) }
 			disabled={ disabled }
 		>
+			{ prefix && <div className="prefix">{ prefix }</div> }
 			{ children }
+			{ postfix && <div className="postfix">{ postfix }</div> }
 		</button>
 	);
 };
