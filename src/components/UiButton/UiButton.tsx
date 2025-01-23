@@ -119,13 +119,15 @@ const kindClasses = {
 		bg-transparent
 		box-shadow-none
 		text-secondary
-		text-decoration: underline
+		underline
 
 		hover:bg-secondary-alt-200
 		hover:text-secondary-400
-		hover:text-decoration: none
+		hover:no-underline
+
 		active:bg-secondary-alt-300
 		active:text-secondary-500
+
 		disabled:text-secondary-alt-300
 	`,
 };
@@ -181,9 +183,9 @@ export const UiButton: React.FC<TButtonProps> = ({
 			) }
 			disabled={ disabled }
 		>
-			{ prefix && <div className="prefix">{ prefix }</div> }
+			{ prefix ? prefix  : null }
 			{ children }
-			{ postfix && <div className="postfix">{ postfix }</div> }
+			{ postfix ? postfix  : null }
 		</button>
 	);
 };
