@@ -177,7 +177,7 @@ export const UiSkeleton: React.FC<UiSkeletonProps> = ({
 						{ ["w-3/4", "w-1/2", "w-3/4", "w-4/5"].map((widthClass, index) => {
 
 							const heightClass = index === 1 ? "h-lg" : "h-[20px]";
-							const lastDivClass = index === 3 ? "h-xxl bg-secondary-alt-500 mt-md" : heightClass;
+							const lastDivClass = index === 3 ? "h-xxl bg-secondary-alt-500" : heightClass;
 
 							return (
 								<div
@@ -188,7 +188,7 @@ export const UiSkeleton: React.FC<UiSkeletonProps> = ({
 										"flex-col",
 										"flex",
 										"h-[20px]",
-										"mb-xxxs",
+										"mb-sm",
 										"rounded",
 										widthClass,
 										heightClass,
