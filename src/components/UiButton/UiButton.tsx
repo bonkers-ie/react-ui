@@ -35,141 +35,117 @@ const typeClasses = {
 };
 
 const variantClasses = {
-	[EButtonVariants.BRAND]: `
-		text-white
-		bg-primary-600
-		border-primary-600
+	[EButtonTypes.PRIMARY]: {
+		[EButtonVariants.BRAND]: `
+			text-white
+			bg-primary-600
+			border-primary-600
+			hover:bg-primary-700
+			active:bg-primary-800
+		`,
+		[EButtonVariants.ACCENT]: `
+			text-white
+			bg-primary-800
+			border-primary-800
+			hover:bg-primary-700
+			active:bg-primary-800
+		`,
+		[EButtonVariants.NEUTRAL]: `
+			bg-secondary
+			border-secondary
+			text-white
+			hover:bg-secondary-400
+			active:bg-secondary-500
+		`,
+		[EButtonVariants.DESTRUCTIVE]: `
+			bg-error
+			border-error
+			text-white
+			hover:bg-error-600
+			active:bg-error-700
+		`,
+	},
+	[EButtonTypes.SECONDARY]: {
+		[EButtonVariants.BRAND]: `
+			text-primary-600
+			bg-white
+			border-primary-600
+			hover:bg-primary-50
+			active:bg-primary-100
+			active:border-primary-700
+			active:text-primary-700
+		`,
+		[EButtonVariants.ACCENT]: `
+			text-primary-800
+			bg-white
+			border-primary-800
+			hover:bg-primary-50
+			hover:border-primary-700
+			hover:text-primary-700
+			active:bg-primary-100
+			active:border-primary-800
+			active:text-primary-800
+		`,
+		[EButtonVariants.NEUTRAL]: `
+			text-secondary
+			bg-white
+			border-secondary
+			hover:bg-secondary-alt-200
+			hover:border-secondary-400
+			hover:text-secondary-400
+			active:bg-secondary-alt-300
+		`,
+		[EButtonVariants.DESTRUCTIVE]: `
+			text-error
+			bg-white
+			border-error
+			hover:bg-error-100
+			hover:border-error-600
+			hover:text-error-600
+			active:bg-error-200
+			active:border-error-700
+			active:text-error-700
+		`,
+	},
+	[EButtonTypes.TERTIARY]: {
+		[EButtonVariants.BRAND]: `
+			text-primary-600
+			bg-transparent
+			border-transparent
+			hover:bg-primary-50
+			hover:no-underline
+			active:bg-primary-100
+		`,
+		[EButtonVariants.ACCENT]: `
+			text-primary-800
+			bg-transparent
+			border-transparent
+			hover:bg-primary-50
+			active:bg-primary-100
+		`,
+		[EButtonVariants.NEUTRAL]: `
+			text-secondary
+			bg-transparent
+			border-transparent
+			hover:bg-secondary-50
+			active:bg-secondary-100
+		`,
+		[EButtonVariants.DESTRUCTIVE]: `
+			text-error
+			bg-transparent
+			border-transparent
+			hover:bg-error-50
+			active:bg-error-100
+		`,
+	},
+};
 
-		hover:bg-primary-700
-		active:bg-primary-800
-		disabled:bg-secondary-alt-300
-	`,
-	[EButtonVariants.ACCENT]: `
-		text-white
-		bg-primary-800
-		border-primary-800
-
-		hover:bg-primary-700
-		active:bg-primary-800
-		disabled:bg-secondary-alt-300
-	`,
-	[EButtonVariants.NEUTRAL]: `
-		bg-secondary
-		border-secondary
-		text-white
-
-		hover:bg-secondary-400
-		active:bg-secondary-500
-		disabled:bg-secondary-alt-300
-	`,
-	[EButtonVariants.DESTRUCTIVE]: `
-		bg-error
-		border-error
-		text-white
-
-		hover:bg-error-600
-		active:bg-error-700
-		disabled:bg-secondary-alt-300
-	`,
-	/*
-	[EButtonVariants.PRIMARY_OVERLAY]: `
-		bg-white
-		border
-		border-primary-600
-		text-primary-600
-
-		hover:border-primary-700
-		hover:bg-primary-50
-		hover:text-primary-700
-
-		active:border-primary-700
-		active:bg-primary-100
-		active:text-primary-700
-
-		disabled:border-secondary-alt-300
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonVariants.SECONDARY_OVERLAY]: `
-		bg-white
-		border
-		border-secondary
-		text-secondary
-
-		hover:border-secondary-400
-		hover:bg-secondary-alt-200
-		hover:text-secondary-400
-
-		active:border-secondary-500
-		active:bg-secondary-alt-300
-		active:text-secondary-500
-
-		active:text-white
-		disabled:border-secondary-alt-300
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonVariants.ERROR_OVERLAY]: `
-		bg-white
-		border
-		border-error
-		text-error
-
-		hover:border-error-600
-		hover:bg-error-100
-		hover:text-error-600
-
-		active:border-error-700
-		active:bg-error-200
-		active:text-error-700
-
-		disabled:border-secondary-alt-300
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonVariants.LINK]: `
-		bg-transparent
-		box-shadow-none
-		text-secondary
-		underline
-
-		hover:bg-secondary-alt-200
-		hover:text-secondary-400
-		hover:no-underline
-
-		active:bg-secondary-alt-300
-		active:text-secondary-500
-
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonVariants.LINK_PRIMARY]: `
-		bg-transparent
-		box-shadow-none
-		text-primary-600
-		underline
-
-		hover:bg-primary-50
-		hover:text-primary-700
-		hover:no-underline
-
-		active:bg-primary-100
-		active:text-primary-700
-
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonVariants.LINK_WARNING]: `
-		bg-transparent
-		box-shadow-none
-		text-error
-		underline
-
-		hover:bg-error-50
-		hover:text-error-600
-		hover:no-underline
-
-		active:bg-error-200
-		active:text-error-700
-
-		disabled:text-secondary-alt-300
-	`,
-	*/
+const disabledStyles = {
+	"disabled:bg-secondary-alt-300": true,
+	"disabled:border-transparent": true,
+	"disabled:box-shadow-none": true,
+	"disabled:text-white": true,
+	"disabled:no-underline": true,
 };
 
 const sizeClasses = {
@@ -225,16 +201,18 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"focus:before:inset-0",
 				"focus:before:z-[-1]",
 				"focus:before:w-[calc(100%+10px)]",
-				"focus:before:h-[calc(100%+8px)]",
+				"focus:before:h-[calc(100%+10px)]",
 				typeClasses[kind],
-				variantClasses[variant],
+				variantClasses[kind][variant],
 				sizeClasses[size],
 				weightClasses[weight],
 				{
 					"w-full": fullWidth,
 					"pointer-events-none": disabled,
 					"shadow-md": kind !== EButtonTypes.TERTIARY && !disabled
-				}
+
+				},
+				disabled && disabledStyles
 			) }
 			disabled={ disabled }
 		>
