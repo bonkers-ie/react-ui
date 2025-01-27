@@ -1,16 +1,16 @@
 export enum EButtonTypes {
 	PRIMARY = "primary",
 	SECONDARY = "secondary",
-	ERROR = "error",
-	WARNING = "warning",
-	PRIMARY_OVERLAY = "primary-overlay",
-	SECONDARY_OVERLAY = "secondary-overlay",
-	ERROR_OVERLAY = "error-overlay",
-	WARNING_OVERLAY = "warning-overlay",
-	LINK = "link",
-	LINK_PRIMARY = "link-primary",
-	LINK_WARNING = "link-warning",
+	TERTIARY = "tertiary"
 }
+
+export enum EButtonVariants {
+	BRAND = "brand",
+	ACCENT = "accent",
+	NEUTRAL = "neutral",
+	DESTRUCTIVE = "destructive"
+}
+
 export enum EButtonSizes {
 	DEFAULT = "default",
 	SMALL = "sm",

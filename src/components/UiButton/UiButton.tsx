@@ -1,10 +1,11 @@
 import React from "react";
-import { EButtonSizes, EButtonTypes, EButtonWeight } from "./_types.ts";
+import { EButtonSizes, EButtonTypes, EButtonWeight, EButtonVariants } from "./_types.ts";
 import cx from "classnames";
 import css from "./UiButton.module.css";
 
 type TButtonProps = {
 	kind?: EButtonTypes;
+	variant?: EButtonVariants;
 	size?: EButtonSizes;
 	fullWidth?: boolean;
 	weight?: EButtonWeight;
@@ -14,40 +15,64 @@ type TButtonProps = {
 React.ButtonHTMLAttributes<HTMLElement> &
 React.AnchorHTMLAttributes<HTMLElement>
 
-const kindClasses = {
+const typeClasses = {
 	[EButtonTypes.PRIMARY]: `
+		border
+		shadow-md
+		text-white
+	`,
+	[EButtonTypes.SECONDARY]: `
+		bg-white
+		border
+		shadow-md
+	`,
+	[EButtonTypes.TERTIARY]: `
+		bg-transparent
+		border-transparent
+		box-shadow-none
+		underline
+	`,
+};
+
+const variantClasses = {
+	[EButtonVariants.BRAND]: `
 		text-white
 		bg-primary-600
+		border-primary-600
 
 		hover:bg-primary-700
 		active:bg-primary-800
 		disabled:bg-secondary-alt-300
 	`,
-	[EButtonTypes.SECONDARY]: `
+	[EButtonVariants.ACCENT]: `
+		text-white
+		bg-primary-800
+		border-primary-800
+
+		hover:bg-primary-700
+		active:bg-primary-800
+		disabled:bg-secondary-alt-300
+	`,
+	[EButtonVariants.NEUTRAL]: `
 		bg-secondary
+		border-secondary
 		text-white
 
 		hover:bg-secondary-400
 		active:bg-secondary-500
 		disabled:bg-secondary-alt-300
 	`,
-	[EButtonTypes.ERROR]: `
+	[EButtonVariants.DESTRUCTIVE]: `
 		bg-error
+		border-error
 		text-white
 
 		hover:bg-error-600
 		active:bg-error-700
 		disabled:bg-secondary-alt-300
 	`,
-	[EButtonTypes.WARNING]: `
-		bg-warning
-		text-white
-
-		hover:bg-warning-600
-		active:bg-warning-700
-		disabled:bg-secondary-alt-300
-	`,
-	[EButtonTypes.PRIMARY_OVERLAY]: `
+	/*
+	[EButtonVariants.PRIMARY_OVERLAY]: `
 		bg-white
 		border
 		border-primary-600
@@ -64,7 +89,7 @@ const kindClasses = {
 		disabled:border-secondary-alt-300
 		disabled:text-secondary-alt-300
 	`,
-	[EButtonTypes.SECONDARY_OVERLAY]: `
+	[EButtonVariants.SECONDARY_OVERLAY]: `
 		bg-white
 		border
 		border-secondary
@@ -82,7 +107,7 @@ const kindClasses = {
 		disabled:border-secondary-alt-300
 		disabled:text-secondary-alt-300
 	`,
-	[EButtonTypes.ERROR_OVERLAY]: `
+	[EButtonVariants.ERROR_OVERLAY]: `
 		bg-white
 		border
 		border-error
@@ -99,23 +124,7 @@ const kindClasses = {
 		disabled:border-secondary-alt-300
 		disabled:text-secondary-alt-300
 	`,
-	[EButtonTypes.WARNING_OVERLAY]: `
-		border
-		border-warning
-		text-warning
-
-		hover:border-transparent
-		hover:bg-warning-600
-		hover:text-white
-
-		active:border-transparent
-		active:bg-warning-700
-		active:text-white
-
-		disabled:border-secondary-alt-300
-		disabled:text-secondary-alt-300
-	`,
-	[EButtonTypes.LINK]: `
+	[EButtonVariants.LINK]: `
 		bg-transparent
 		box-shadow-none
 		text-secondary
@@ -130,7 +139,7 @@ const kindClasses = {
 
 		disabled:text-secondary-alt-300
 	`,
-	[EButtonTypes.LINK_PRIMARY]: `
+	[EButtonVariants.LINK_PRIMARY]: `
 		bg-transparent
 		box-shadow-none
 		text-primary-600
@@ -145,7 +154,7 @@ const kindClasses = {
 
 		disabled:text-secondary-alt-300
 	`,
-	[EButtonTypes.LINK_WARNING]: `
+	[EButtonVariants.LINK_WARNING]: `
 		bg-transparent
 		box-shadow-none
 		text-error
@@ -160,6 +169,7 @@ const kindClasses = {
 
 		disabled:text-secondary-alt-300
 	`,
+	*/
 };
 
 const sizeClasses = {
@@ -176,6 +186,7 @@ const weightClasses = {
 
 export const UiButton: React.FC<TButtonProps> = ({
 	kind = EButtonTypes.PRIMARY,
+	variant = EButtonVariants.BRAND,
 	size = EButtonSizes.DEFAULT,
 	fullWidth = false,
 	disabled = false,
@@ -215,16 +226,14 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"focus:before:z-[-1]",
 				"focus:before:w-[calc(100%+10px)]",
 				"focus:before:h-[calc(100%+8px)]",
-				kindClasses[kind],
+				typeClasses[kind],
+				variantClasses[variant],
 				sizeClasses[size],
 				weightClasses[weight],
 				{
 					"w-full": fullWidth,
 					"pointer-events-none": disabled,
-					"shadow-md": kind !== EButtonTypes.LINK
-								&& kind !== EButtonTypes.LINK_PRIMARY
-								&& kind !== EButtonTypes.LINK_WARNING
-								&& !disabled
+					"shadow-md": kind !== EButtonTypes.TERTIARY && !disabled
 				}
 			) }
 			disabled={ disabled }
