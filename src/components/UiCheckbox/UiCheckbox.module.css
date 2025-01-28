@@ -39,7 +39,7 @@ input:checked + .UiCheckbox__custom > svg {
 
 input:checked + .UiCheckbox__custom {
 	border-width: 0;
-	background-color: theme(colors.primary.500);
+	background-color: theme(colors.primary.600);
 	transition:
 		background-color ease-in-out 0.1s,
 		border-width ease-in-out 0.1s,
