@@ -3,8 +3,8 @@ import { ETextAlign, ETextTransform, ETextWeight, ETypographySizes } from "./_ty
 import { EColors } from "../../_types/colors.ts";
 import cx from "classnames";
 
-interface ITypographyProps {
-	tag?: keyof React.JSX.IntrinsicElements;
+type TUiTypographyProps<T extends keyof React.JSX.IntrinsicElements> = {
+	tag?: T;
 	children?: React.ReactNode;
 	underline?: boolean;
 	lineHeight?: boolean;
@@ -13,8 +13,7 @@ interface ITypographyProps {
 	align?: ETextAlign;
 	weight?: ETextWeight;
 	color?: EColors;
-	className?: string;
-}
+} & Omit<React.JSX.IntrinsicElements[T], "children" | "ref">;
 
 const sizeClasses = {
 	[ETypographySizes.MD]: "text-md",
@@ -117,10 +116,10 @@ const colorClasses = {
 	[EColors.ACCENT_ALT_700]: "text-accent-alt-700",
 };
 
-export const UiTypography: React.FC<ITypographyProps> = (
+export const UiTypography = <T extends keyof React.JSX.IntrinsicElements> (
 	{
 		children,
-		tag: Tag = "p",
+		tag,
 		underline = false,
 		lineHeight = false,
 		size,
@@ -128,8 +127,9 @@ export const UiTypography: React.FC<ITypographyProps> = (
 		align,
 		weight,
 		color,
-		className
-	}) => {
+		className,
+		...rest
+	}: TUiTypographyProps<T> ): React.JSX.Element => {
 
 	const classes = cx(
 		"ui-typography",
@@ -145,9 +145,8 @@ export const UiTypography: React.FC<ITypographyProps> = (
 		className
 	);
 
-	return (
-		<Tag className={ cx(classes) }>
-			{ children }
-		</Tag>
-	);
+	return React.createElement(tag || "p", {
+		className: classes,
+		...rest
+	}, children);
 };

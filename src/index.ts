@@ -3,6 +3,7 @@ export * as UiBerRank from "./components/UiBerRank";
 export * as UiButton from "./components/UiButton";
 export * as UiCheckbox from "./components/UiCheckbox";
 export * as UiIcon from "./components/UiIcon";
+export * as UiInput from "./components/UiInput";
 export * as UiInputRange from "./components/UiInputRange";
 export * as UiList from "./components/UiList";
 export * as UiRadio from "./components/UiRadio";
