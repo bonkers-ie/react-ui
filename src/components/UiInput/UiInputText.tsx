@@ -1,13 +1,13 @@
 import React from "react";
 import { UiInputBase } from "./UiInput.base.tsx";
 import { UiInputTitled } from "./UiInputTitled.tsx";
-import { EInputState } from "./_types.ts";
+import { EInputKind } from "./_types.ts";
 import { EColors, ETypographySizes, UiTypography } from "../UiTypography/index.ts";
 import cx from "classnames";
 
 type TUiInputTextProps = {
 	id: string;
-	state?: EInputState;
+	kind?: EInputKind;
 	statusMessage?: string;
 	title?: React.ReactNode;
 	subtitle?: React.ReactNode;
@@ -15,7 +15,7 @@ type TUiInputTextProps = {
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const UiInputText: React.FC<TUiInputTextProps> = ({
-	state,
+	kind,
 	title,
 	infoComponent,
 	subtitle,
@@ -35,7 +35,7 @@ export const UiInputText: React.FC<TUiInputTextProps> = ({
 						) }
 						lineHeight
 						color={
-							state === EInputState.ERROR ? EColors.ERROR : EColors.PRIMARY
+							kind === EInputKind.ERROR ? EColors.ERROR : EColors.PRIMARY
 						}
 						size={ ETypographySizes.SM }
 						data-status={ !!statusMessage }
@@ -44,7 +44,7 @@ export const UiInputText: React.FC<TUiInputTextProps> = ({
 					</UiTypography>
 				)
 				: null }
-			<UiInputBase state={ state } { ...rest }/>
+			<UiInputBase kind={ kind } { ...rest }/>
 		</UiInputTitled>
 	);
 };

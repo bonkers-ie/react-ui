@@ -1,23 +1,23 @@
 import React from "react";
 import { UiTypography } from "../UiTypography";
-import { EInputState } from "./_types";
+import { EInputKind } from "./_types";
 import cx from "classnames";
 
 export type TUiInputBaseProps = {
 	id: string;
 	postIcon?: React.ReactNode;
 	preIcon?: React.ReactNode;
-	state?: EInputState;
+	kind?: EInputKind;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
 export const UiInputBase: React.FC<
 	TUiInputBaseProps
-> = ({ postIcon, preIcon, state, ...rest } ) => {
+> = ({ postIcon, preIcon, kind = EInputKind.DEFAULT, ...rest } ) => {
 
 	const stateClasses = {
-		[EInputState.DEFAULT]: "border-secondary-alt-500 hover:border-secondary-alt-700",
-		[EInputState.ERROR]: "border-error",
-		[EInputState.SUCCESS]: "border-primary-600",
+		[EInputKind.DEFAULT]: "border-secondary-alt-500 hover:border-secondary-alt-700",
+		[EInputKind.ERROR]: "border-error",
+		[EInputKind.SUCCESS]: "border-primary-600",
 	};
 
 	return (
@@ -26,8 +26,8 @@ export const UiInputBase: React.FC<
 			htmlFor={ rest.id }
 			className={
 				cx("ui-input-wrapper",
-					"flex w-full items-center gap-xxs rounded-lg border p-sm",
-					state && stateClasses[state],
+					"flex flex-row items-center gap-xxs rounded-lg border p-sm",
+					kind && stateClasses[kind],
 					{
 						"bg-white": !rest.disabled,
 						"border-secondary-alt-300 bg-secondary-alt-200": rest.disabled,
@@ -36,7 +36,7 @@ export const UiInputBase: React.FC<
 		>
 			{ preIcon ? preIcon : null }
 			<input
-				className={ cx("border-0 bg-transparent outline-none placeholder:text-secondary-alt-600 w-full") }
+				className={ cx("border-0 flex-1 bg-transparent outline-none placeholder:text-secondary-alt-600 w-full") }
 				{ ...rest }
 			/>
 			{ postIcon ? postIcon : null }

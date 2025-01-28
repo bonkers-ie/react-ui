@@ -17,37 +17,35 @@ export const UiInputTitled: React.FC<TUiInputTitledProps> = ({
 }) => {
 
 	return (
-		<>
-			<div className="flex flex-col">
-				{ title
-					? (
-						<UiTypography
-							size={ ETypographySizes.MD }
-							color={ EColors.SECONDARY }
-							lineHeight
-							className="mb-xxs"
-						>
-							{ title }
-						</UiTypography>
-					)
-					: null }
-				{ infoComponent }
-				{ subtitle
-					? (
-						<UiTypography
-							lineHeight
-							color={ EColors.SECONDARY_ALT_600 }
-							size={ ETypographySizes.SM }
-							className="mb-xxs"
-						>
-							{ subtitle }
-						</UiTypography>
-					)
-					: null }
-			</div>
+		<div className="grid w-full grid-flow-row">
+			{ title
+				? (
+					<UiTypography
+						size={ ETypographySizes.MD }
+						color={ EColors.SECONDARY }
+						lineHeight
+						className="mb-xxs"
+					>
+						{ title }
+					</UiTypography>
+				)
+				: null }
+			{ infoComponent }
+			{ subtitle
+				? (
+					<UiTypography
+						lineHeight
+						color={ EColors.SECONDARY_ALT_600 }
+						size={ ETypographySizes.SM }
+						className="mb-xxs"
+					>
+						{ subtitle }
+					</UiTypography>
+				)
+				: null }
 			<div className="relative w-full">
 				{ children }
 			</div>
-		</>
+		</div>
 	);
 };
