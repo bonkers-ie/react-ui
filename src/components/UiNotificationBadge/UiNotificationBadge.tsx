@@ -2,17 +2,13 @@
 import React from "react";
 import cx from "classnames";
 import { EBadgeOffset } from "./_types";
-import { UiIcon } from "../UiIcon";
+
 import { EColors } from "../UiTypography";
-import { type IconProp } from "@fortawesome/fontawesome-svg-core";
-import { ESize } from "../../_types/sizing";
 
 type UiNotificationBadge = {
 	offset?: EBadgeOffset,
-	notificationCount: React.ReactNode;
-	showZero?: boolean;
+	children: React.ReactNode;
 	color?: EColors;
-	icon?: IconProp
 };
 
 const colorClasses = {
@@ -83,52 +79,47 @@ const colorClasses = {
 	[EColors.ACCENT_ALT_700]: "bg-accent-alt-700",
 };
 
+const offsetClasses = {
+	[EBadgeOffset.DEFAULT]: "-right-xxxs -top-xxxs",
+	[EBadgeOffset.OFFSET_BOTTOM_RIGHT]: "-right-xxxs -bottom-xxxs",
+	[EBadgeOffset.OFFSET_TOP_LEFT]: "-left-xxxs -top-xxxs",
+	[EBadgeOffset.OFFSET_BOTTOM_LEFT]: "-left-xxxs -bottom-xxxs",
+};
+
 export const UiNotificationBadge: React.FC<UiNotificationBadge> = ({
 	offset,
-	notificationCount,
-	showZero = false,
+	children,
 	color,
-	icon
-
 }) => {
-	const isZero = notificationCount === 0;
-	const shouldRender = showZero || (!isZero && notificationCount);
+	if (!children) {
+		return null;
+	}
 
 	return (
-		<div >
-			{ shouldRender && (
-				<div
-					className={ cx(
-						"notification-badge",
-						"px-xxs",
-						"py-xxxs",
-						"absolute",
-						"inline-flex",
-						"items-center",
-						"rounded-full",
-						"border",
-						"border-white",
-						"text-center",
-						"text-xxs",
-						"font-bold",
-						"leading-none",
-						"text-white",
-						"whitespace-nowrap",
-						"gap-xxxs",
-						color && colorClasses[color],
-						{
-							"-right-xxxs -top-xxxs": offset === EBadgeOffset.DEFAULT,
-							"-right-xxxs top-md": offset === EBadgeOffset.OFFSET_BOTTOM_RIGHT,
-							"-left-xxxs -top-xxxs": offset === EBadgeOffset.OFFSET_TOP_LEFT,
-							"-left-xxxs top-md": offset === EBadgeOffset.OFFSET_BOTTOM_LEFT
-						}
-					) }
-				>
-					{ icon ? <UiIcon name={ icon } size={ ESize.XS } /> : null }
-					{ notificationCount }
-				</div>
+		<div
+			className={ cx(
+				"notification-badge",
+				"p-xxxs",
+				"h-sm",
+				"min-w-sm",
+				"absolute",
+				"inline-flex",
+				"items-center",
+				"rounded-full",
+				"border",
+				"border-white",
+				"text-center",
+				"text-xxs",
+				"font-bold",
+				"leading-none",
+				"text-white",
+				"whitespace-nowrap",
+				"gap-xxxs",
+				color && colorClasses[color],
+				offset && offsetClasses[offset]
 			) }
+		>
+			{ children }
 		</div>
 	);
-
 };

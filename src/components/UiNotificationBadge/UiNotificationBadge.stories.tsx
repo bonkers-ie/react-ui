@@ -3,6 +3,8 @@ import { UiNotificationBadge } from "./UiNotificationBadge";
 import { EBadgeOffset } from "./_types";
 import { EColors } from "../../_types/colors";
 import React from "react";
+import { UiIcon } from "../UiIcon/UiIcon";
+import { ESize } from "../../_types/sizing";
 
 const meta: Meta<typeof UiNotificationBadge> = {
 	title: "Components/UiNotificationBadge",
@@ -15,12 +17,6 @@ const meta: Meta<typeof UiNotificationBadge> = {
 			options: Object.values(EBadgeOffset),
 			description: "The position of the badge relative to its container",
 		},
-		showZero: {
-			control: {
-				type: "boolean",
-			},
-			description: "Determines if the badge is visible when count is zero",
-		},
 		color: {
 			control: {
 				type: "select",
@@ -28,11 +24,16 @@ const meta: Meta<typeof UiNotificationBadge> = {
 			options: Object.values(EColors),
 			description: "Typography Color",
 		},
+		children: {
+			control: {
+				type: "text"
+			}
+		}
 	},
 	args: {
 		offset: EBadgeOffset.DEFAULT,
-		showZero: false,
-		color: EColors.ERROR
+		color: EColors.ERROR,
+		children: "5"
 	},
 };
 
@@ -44,17 +45,15 @@ export const Primary: Story = {
 	render: (args) => (
 		<div className="flex gap-sm">
 			<div className="relative size-xl rounded-full bg-primary">
-				<UiNotificationBadge { ...args } notificationCount={ 5 } />
+				<UiNotificationBadge { ...args } />
 			</div>
-			<div className="relative size-xl rounded-sm bg-secondary">
-				<UiNotificationBadge { ...args } notificationCount={ "New" } />
+			<div className="relative size-xxl rounded-sm bg-secondary">
+				<UiNotificationBadge { ...args } children={ "New" } />
 			</div>
-			<div className="relative size-xl rounded-sm bg-error">
-				<UiNotificationBadge { ...args } notificationCount={ "!" } color={ EColors.ACCENT_ALT }/>
+			<div className="relative size-xxl rounded-full bg-accent">
+				<UiNotificationBadge { ...args } children={ <UiIcon name={ ["far", "face-smile"] } size={ ESize.XXS } /> } />
 			</div>
-			<div className="relative size-xl rounded-sm bg-accent">
-				<UiNotificationBadge { ...args } notificationCount color={ EColors.PRIMARY } icon={ ["far", "face-smile"] }/>
-			</div>
+
 		</div>
 	),
 };
