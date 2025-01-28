@@ -27,7 +27,7 @@ export const UiSkeleton: React.FC<UiSkeletonProps> = ({
 				>
 					<div
 						className={ cx(
-							"ui-skeleton-card__provider",
+							"ui-skeleton-card__content",
 							"bg-secondary-alt-300",
 							"gap-xs",
 							"items-center",
@@ -41,7 +41,7 @@ export const UiSkeleton: React.FC<UiSkeletonProps> = ({
 						<div className={ cx("grid", "grow", "gap-xxs", "justify-items-center") }>
 							<div
 								className={ cx(
-									"ui-skeleton-card__provider__content",
+									"ui-skeleton-card__content",
 									"bg-secondary-alt-400",
 									"h-xl",
 									"mb-sm",
@@ -51,7 +51,7 @@ export const UiSkeleton: React.FC<UiSkeletonProps> = ({
 							/>
 							<div
 								className={ cx(
-									"ui-skeleton-card__provider__content",
+									"ui-skeleton-card__content",
 									"bg-secondary-alt-400",
 									"h-xxxxl",
 									"rounded-full",
