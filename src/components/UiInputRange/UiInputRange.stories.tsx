@@ -24,7 +24,15 @@ const meta = {
 			},
 			description: "The step increment of the range",
 		}
-	}
+	},
+	args: {
+		min: 0,
+		max: 100,
+		step: 1,
+		disabled: false,
+		value: 50,
+		onChangeHandler: (val?	) => console.log(val)
+	},
 } satisfies Meta<typeof UiInputRange>;
 
 export default meta;
@@ -128,19 +136,7 @@ export const DecimalSteps: Story = {
 
 // Disabled state
 export const Disabled: Story = {
-	render: (args) => {
-		return (
-			<div>
-				<UiInputRange { ...args } />
-			</div>
-		);
-	},
 	args: {
-		min: 0,
-		max: 100,
-		step: 1,
-		disabled: true,
-		value: 50,
-		onChangeHandler: () => {}
+		disabled: true
 	},
 };
