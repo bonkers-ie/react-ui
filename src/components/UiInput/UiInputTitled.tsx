@@ -17,14 +17,13 @@ export const UiInputTitled: React.FC<TUiInputTitledProps> = ({
 }) => {
 
 	return (
-		<div className="grid w-full grid-flow-row">
+		<div className="grid w-full grid-flow-row gap-xxxs">
 			{ title
 				? (
 					<UiTypography
 						size={ ETypographySizes.MD }
 						color={ EColors.SECONDARY }
 						lineHeight
-						className="mb-xxs"
 					>
 						{ title }
 					</UiTypography>
@@ -37,7 +36,6 @@ export const UiInputTitled: React.FC<TUiInputTitledProps> = ({
 						lineHeight
 						color={ EColors.SECONDARY_ALT_600 }
 						size={ ETypographySizes.SM }
-						className="mb-xxs"
 					>
 						{ subtitle }
 					</UiTypography>

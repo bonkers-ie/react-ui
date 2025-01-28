@@ -23,18 +23,6 @@ const meta = {
 				type: "boolean",
 			},
 		},
-		/* 	title: {
-			description: "The title of the input",
-			control: {
-				type: "text",
-			},
-		},
-		subtitle: {
-			description: "The subtitle of the input",
-			control: {
-				type: "text",
-			},
-		}, */
 		placeholder: {
 			description: "The placeholder of the input",
 			control: {
@@ -52,16 +40,6 @@ const meta = {
 				type: "radio",
 			},
 		},
-		/* statusMessage: {
-			description: "The status message of the input",
-			control: {
-				type: "text",
-			},
-			if: {
-				arg: "state",
-				neq: EInputKind.DEFAULT,
-			},
-		}, */
 		type: {
 			description: "The type of the input",
 			control: {
