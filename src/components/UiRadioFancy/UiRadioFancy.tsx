@@ -47,10 +47,10 @@ export const UiRadioFancy: React.FC<TUiRadioFancy> = ({
 				"box-border",
 				"cursor-pointer",
 				"rounded-lg",
-				"border-2",
+				"border",
 				"bg-white",
 				"p-sm",
-				"hover:border-primary-700",
+				"hover:border-secondary-alt-700",
 				"peer-focus:shadow-border-primary",
 				"peer-active:bg-secondary-alt-200",
 				"flex",
@@ -58,7 +58,7 @@ export const UiRadioFancy: React.FC<TUiRadioFancy> = ({
 				"text-sm",
 				{
 					"border-secondary-alt-400": disabled && !active,
-					"border-primary-600": !disabled && active,
+					"border-primary-600 border-2 peer-hover:border-primary-700": !disabled && active,
 					"border-primary-300": disabled && active,
 					"border-secondary-alt-600": !disabled && !active
 

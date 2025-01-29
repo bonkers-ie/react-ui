@@ -62,7 +62,56 @@ export const Primary: Story = {
 		};
 
 		return (
-			<div className={ args.radioType === ERadioTypes.COMPACT ? "grid grid-cols-2 gap-sm" : "grid grid-rows-2 gap-sm" }>
+			<div className= "grid grid-rows-2 gap-sm" >
+				<UiRadioFancy
+					disabled={ args.disabled }
+					icon={ ["far", "face-smile"] }
+					radioType={ args.radioType }
+					value="value1"
+					onChange={ handleChange }
+					active={ selectedValue === "value1" }
+
+				>
+					{ args.children }
+
+				</UiRadioFancy>
+
+				<UiRadioFancy
+					disabled={ args.disabled }
+					icon={ ["far", "face-smile"] }
+					subHeader={ args.subHeader }
+					radioType={ args.radioType }
+					value="value2"
+					onChange={ handleChange }
+					active={ selectedValue === "value2" }
+
+				>
+					{ args.children }
+
+				</UiRadioFancy>
+			</div>
+		);
+
+	},
+};
+
+export const Variant: Story = {
+	args: {
+		...meta.args,
+		radioType: ERadioTypes.COMPACT,
+	},
+	render: (args) => {
+		const [selectedValue, setSelectedValue] = useState<string>("value1");
+
+		const handleChange = (value: string) => {
+			setSelectedValue(value);
+			if (args.onChange) {
+				args.onChange(value);
+			}
+		};
+
+		return (
+			<div className= { args.radioType === ERadioTypes.COMPACT ? "grid w-[350px] grid-cols-2 gap-sm" : "grid grid-rows-2 gap-sm" }>
 				<UiRadioFancy
 					disabled={ args.disabled }
 					icon={ ["far", "face-smile"] }
