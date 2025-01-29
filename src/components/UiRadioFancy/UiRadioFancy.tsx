@@ -3,20 +3,35 @@ import cx from "classnames";
 import { UiIcon } from "../UiIcon";
 import { ESize } from "../../_types/sizing";
 import { type IconProp } from "@fortawesome/fontawesome-svg-core";
+import { ERadioTypes } from "./_types";
 
-interface IUiRadioFancy {
+export type TUiRadioFancy = {
 	children: React.ReactNode
 	icon?: IconProp
 	disabled?: boolean;
+	active?: boolean;
 	subHeader?: string;
+	radioType?: ERadioTypes;
+	value: string;
+	onChange: (value: string) => void;
 
-}
+}& Omit<React.InputHTMLAttributes<HTMLInputElement>, "onChange" | "checked" | "value" | "name">;
 
-export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
+const typeClasses = {
+	[ERadioTypes.DEFAULT]: "items-center",
+	[ERadioTypes.COMPACT]: "items-start flex-col"
+};
+
+export const UiRadioFancy: React.FC<TUiRadioFancy> = ({
 	children,
 	icon,
 	disabled,
-	subHeader
+	subHeader,
+	active,
+	radioType = ERadioTypes.DEFAULT,
+	value,
+	onChange
+
 }) => {
 	return (
 		<label className={ cx(
@@ -26,11 +41,10 @@ export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
 				"pointer-events-none": disabled
 			}
 		) }>
-			<input className="group peer absolute appearance-none" type="radio"/>
+			<input className="group peer absolute appearance-none" type="radio" checked={ active } onChange={ ()=> onChange(value) }/>
 
 			<div className={ cx(
 				"box-border",
-				"size-full",
 				"cursor-pointer",
 				"rounded-lg",
 				"border-2",
@@ -40,13 +54,16 @@ export const UiRadioFancy: React.FC<IUiRadioFancy> = ({
 				"peer-focus:shadow-border-primary",
 				"peer-active:bg-secondary-alt-200",
 				"flex",
-				"items-center",
 				"gap-sm",
 				"text-sm",
 				{
-					"border-secondary-alt-400": disabled,
-					"border-primary-600": !disabled
-				}
+					"border-secondary-alt-400": disabled && !active,
+					"border-primary-600": !disabled && active,
+					"border-primary-300": disabled && active,
+					"border-secondary-alt-600": !disabled && !active
+
+				},
+				typeClasses[radioType],
 
 			) }>
 				<div className={ cx(

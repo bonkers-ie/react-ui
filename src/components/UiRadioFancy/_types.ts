@@ -1,5 +1,4 @@
 export enum ERadioTypes {
-	//DEFAULT = "default",
-	MINIMAL = "minimal",
+	DEFAULT = "default",
 	COMPACT = "compact"
 }
