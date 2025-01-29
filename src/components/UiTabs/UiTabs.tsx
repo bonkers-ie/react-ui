@@ -20,7 +20,8 @@ export const UiTabs: React.FC<UiTabsProps> = ({
 			"grid-flow-col",
 			"rounded-full",
 			"bg-secondary-alt-200",
-			"p-[2px]"
+			"p-[2px]",
+			"text-secondary-400"
 
 		) }>
 			{ tabs.map((tab) => (
@@ -29,7 +30,8 @@ export const UiTabs: React.FC<UiTabsProps> = ({
 					className={ cx(
 						"rounded-full",
 						"text-center",
-						tabsModel === tab && "bg-white"
+						tabsModel === tab && "bg-white border border-secondary-alt-600 text-secondary-500",
+
 					) }
 				>
 					<label className={ cx(
