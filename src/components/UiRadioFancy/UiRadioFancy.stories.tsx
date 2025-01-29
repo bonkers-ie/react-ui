@@ -62,7 +62,7 @@ export const Primary: Story = {
 		};
 
 		return (
-			<div className={ args.radioType === ERadioTypes.COMPACT ? "grid w-1/2 grid-cols-2 gap-sm" : "grid grid-rows-2 gap-sm" }>
+			<div className={ args.radioType === ERadioTypes.COMPACT ? "grid grid-cols-2 gap-sm" : "grid grid-rows-2 gap-sm" }>
 				<UiRadioFancy
 					disabled={ args.disabled }
 					icon={ ["far", "face-smile"] }
