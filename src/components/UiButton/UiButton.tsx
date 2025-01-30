@@ -128,7 +128,9 @@ const typeClasses = {
 		text-white
 
 		hover:bg-primary-700
+		hover:border-primary-700
 		active:bg-primary-800
+		active:border-primary-800
 		disabled:bg-secondary-alt-300
 		disabled:border-transparent
 	`,
@@ -175,6 +177,19 @@ const typeClasses = {
 		active:border-error-700
 		disabled:bg-secondary-alt-300
 		disabled:border-transparent
+	`,
+	[EButtonTypes.PRIMARY_INVERSE]: `
+		bg-white
+		border
+		border-secondary-500
+		shadow-md
+		text-secondary-500
+
+		hover:border-secondary-400
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		disabled:bg-secondary-alt-700
+		disabled:border-secondary-alt-700
 	`,
 	[EButtonTypes.SECONDARY_BRAND]: `
 		bg-white
@@ -242,6 +257,22 @@ const typeClasses = {
 		disabled:bg-secondary-alt-300
 		disabled:border-transparent
 	`,
+	[EButtonTypes.SECONDARY_INVERSE]: `
+		bg-transparent
+		border
+		border-white
+		shadow-md
+		text-white
+
+		hover:bg-secondary-500
+		hover:border-secondary-alt-300
+		hover:text-secondary-alt-300
+		active:bg-secondary-400
+		active:border-white
+		active:text-white
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
 	[EButtonTypes.TERTIARY_BRAND]: `
 		bg-transparent
 		border
@@ -300,9 +331,25 @@ const typeClasses = {
 		hover:no-underline
 		hover:text-error-600
 		active:bg-error-200
-		active:error-700
+		active:text-error-700
 		disabled:bg-transparent
 		disabled:text-secondary-alt-300
+		disabled:underline
+	`,
+	[EButtonTypes.TERTIARY_INVERSE]: `
+		bg-transparent
+		border
+		border-transparent
+		text-white
+		underline
+
+		hover:bg-secondary-500
+		hover:no-underline
+		hover:text-secondary-alt-300
+		active:bg-secondary-400
+		active-text-white
+		disabled:bg-transparent
+		disabled:text-secondary-alt-700
 		disabled:underline
 	`,
 };
@@ -346,19 +393,19 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"items-center",
 				"relative",
 				"transition-all",
-				"focus:before:bg-white",
-				"focus:before:border-2",
-				"focus:before:rounded-2xl",
-				"focus:before:border-primary-600",
-				"focus:before:absolute",
-				"focus:before:-translate-x-1/2",
-				"focus:before:-translate-y-1/2",
-				"focus:before:left-1/2",
-				"focus:before:top-1/2",
-				"focus:before:inset-0",
-				"focus:before:z-[-1]",
-				"focus:before:w-[calc(100%+12px)]",
-				"focus:before:h-[calc(100%+10px)]",
+				"focus-visible:before:bg-white",
+				"focus-visible:before:border-2",
+				"focus-visible:before:rounded-2xl",
+				"focus-visible:before:border-primary-600",
+				"focus-visible:before:absolute",
+				"focus-visible:before:-translate-x-1/2",
+				"focus-visible:before:-translate-y-1/2",
+				"focus-visible:before:left-1/2",
+				"focus-visible:before:top-1/2",
+				"focus-visible:before:inset-0",
+				"focus-visible:before:z-[-1]",
+				"focus-visible:before:w-[calc(100%+12px)]",
+				"focus-visible:before:h-[calc(100%+10px)]",
 				typeClasses[kind],
 				sizeClasses[size],
 				weightClasses[weight],

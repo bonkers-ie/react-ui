@@ -81,6 +81,9 @@ export const Variants: Story = {
 					<UiButton { ...args } kind={ EButtonTypes.PRIMARY_DESTRUCTIVE }>
 						<p>CLICK</p>
 					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.PRIMARY_INVERSE }>
+						<p>CLICK</p>
+					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.PRIMARY_BRAND } disabled>
 						<p>CLICK</p>
 					</UiButton>
@@ -98,6 +101,9 @@ export const Variants: Story = {
 					<UiButton { ...args } kind={ EButtonTypes.SECONDARY_DESTRUCTIVE }>
 						<p>CLICK</p>
 					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.SECONDARY_INVERSE }>
+						<p>CLICK</p>
+					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.SECONDARY_BRAND } disabled>
 						<p>CLICK</p>
 					</UiButton>
@@ -113,6 +119,9 @@ export const Variants: Story = {
 						<p>CLICK</p>
 					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.TERTIARY_DESTRUCTIVE }>
+						<p>CLICK</p>
+					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.TERTIARY_INVERSE }>
 						<p>CLICK</p>
 					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.TERTIARY_BRAND } disabled>
@@ -138,6 +147,10 @@ export const Variants: Story = {
 						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 						<p>CLICK</p>
 					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.PRIMARY_INVERSE }>
+						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
+						<p>CLICK</p>
+					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.PRIMARY_BRAND } disabled>
 						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 						<p>CLICK</p>
@@ -160,6 +173,10 @@ export const Variants: Story = {
 						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 						<p>CLICK</p>
 					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.SECONDARY_INVERSE }>
+						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
+						<p>CLICK</p>
+					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.SECONDARY_BRAND } disabled>
 						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 						<p>CLICK</p>
@@ -179,6 +196,10 @@ export const Variants: Story = {
 						<p>CLICK</p>
 					</UiButton>
 					<UiButton { ...args } kind={ EButtonTypes.TERTIARY_DESTRUCTIVE }>
+						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
+						<p>CLICK</p>
+					</UiButton>
+					<UiButton { ...args } kind={ EButtonTypes.TERTIARY_INVERSE }>
 						<UiIcon name={ ["far", "face-angry"] } size={ ESize.MD } />
 						<p>CLICK</p>
 					</UiButton>
