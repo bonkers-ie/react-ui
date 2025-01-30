@@ -47,6 +47,8 @@
 
 	"error": {
 		"DEFAULT": "var(--color-error)",
+		"100": "var(--color-error-100)",
+		"200": "var(--color-error-200)",
 		"300": "var(--color-error-300)",
 		"400": "var(--color-error-400)",
 		"500": "var(--color-error-500)",

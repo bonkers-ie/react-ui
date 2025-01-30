@@ -25,4 +25,3 @@ export const DocsContainer: React.FC<React.PropsWithChildren<DocsContainerProps>
 
 	return <BaseContainer { ...props } theme={ theme } context={ props.context } />;
 };
-

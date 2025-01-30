@@ -96,6 +96,8 @@ const colorClasses = {
 	[EColors.SECONDARY_ALT_700]: "text-secondary-alt-700",
 
 	[EColors.ERROR]: "text-error",
+	[EColors.ERROR_100]: "text-error-100",
+	[EColors.ERROR_200]: "text-error-200",
 	[EColors.ERROR_300]: "text-error-300",
 	[EColors.ERROR_400]: "text-error-400",
 	[EColors.ERROR_500]: "text-error-500",

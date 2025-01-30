@@ -9,111 +9,364 @@ type TButtonProps = {
 	fullWidth?: boolean;
 	weight?: EButtonWeight;
 } & React.HTMLAttributes<HTMLElement> &
-React.ButtonHTMLAttributes<HTMLElement> &
-React.AnchorHTMLAttributes<HTMLElement>
+	React.ButtonHTMLAttributes<HTMLElement> &
+	React.AnchorHTMLAttributes<HTMLElement>
 
-const kindClasses = {
+const typeClasses = {
 	[EButtonTypes.PRIMARY]: `
+		bg-primary-600
+		border
+		border-primary-600
+		shadow-md
 		text-white
-		bg-primary
 
-		hover:bg-primary-600
-		active:bg-primary-700
-		disabled:bg-primary-300
+		hover:bg-primary-700
+		active:bg-primary-800
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
 	`,
 	[EButtonTypes.SECONDARY]: `
-		bg-secondary
+		bg-secondary-500
+		border
+		border-secondary-500
+		shadow-md
 		text-white
 
-		hover:bg-secondary-600
-		active:bg-secondary-700
-		disabled:bg-secondary-300
-	`,
-	[EButtonTypes.ERROR]: `
-		bg-error
-		text-white
-
-		hover:bg-error-600
-		active:bg-error-700
-		disabled:bg-error-300
+		hover:bg-secondary-400
+		hover:border-secondary-400
+		active:bg-secondary-500
+		active:border-secondary-500
+		active:text-secondary-alt-300
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
 	`,
 	[EButtonTypes.WARNING]: `
-		bg-warning
+		bg-error-500
+		border
+		border-error-500
+		shadow-md
 		text-white
 
-		hover:bg-warning-600
-		active:bg-warning-700
-		disabled:bg-warning-300
+		hover:bg-error-600
+		hover:border-error-600
+		active:bg-error-700
+		active:border-error-700
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
 	`,
 	[EButtonTypes.PRIMARY_OVERLAY]: `
+		bg-white
 		border
-		border-primary
-		text-primary
+		border-primary-600
+		shadow-md
+		text-primary-600
 
-		hover:border-transparent
-		hover:bg-primary-600
-		hover:text-white
-
-		active:border-transparent
-		active:bg-primary-700
-		active:text-white
-
-		disabled:border-primary-300
-		disabled:text-primary-300
+		hover:bg-primary-50
+		hover:border-primary-700
+		hover:text-primary-700
+		active:bg-primary-100
+		active:border-primary-700
+		active:text-primary-700
+		disabled:bg-white
+		disabled:border-secondary-alt-300
+		disabled:shadow-none
+		disabled:text-secondary-alt-300
 	`,
 	[EButtonTypes.SECONDARY_OVERLAY]: `
+		bg-white
 		border
-		border-secondary
-		text-secondary
-		hover:border-transparent
-		hover:bg-secondary-600
+		border-secondary-500
+		shadow-md
+		text-secondary-500
 
-		hover:text-white
-		active:border-transparent
-		active:bg-secondary-700
-
-		active:text-white
-		disabled:border-secondary-300
-		disabled:text-secondary-300
-	`,
-	[EButtonTypes.ERROR_OVERLAY]: `
-		border border-error
-		text-error
-
-		hover:border-transparent
-		hover:bg-error-600
-		hover:text-white
-
-		active:border-transparent
-		active:bg-error-700
-		active:text-white
-
-		disabled:border-error-300
-		disabled:text-error-300
+		hover:bg-secondary-alt-200
+		hover:border-secondary-400
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		active:border-secondary-500
+		active:text-secondary-500
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
 	`,
 	[EButtonTypes.WARNING_OVERLAY]: `
+		bg-white
 		border
-		border-warning
-		text-warning
+		border-error-500
+		shadow-md
+		text-error-500
 
-		hover:border-transparent
-		hover:bg-warning-600
-		hover:text-white
-
-		active:border-transparent
-		active:bg-warning-700
-		active:text-white
-
-		disabled:border-warning-300
-		disabled:text-warning-300
+		hover:bg-error-100
+		hover:border-error-600
+		hover:text-error-600
+		active:bg-error-200
+		active:border-error-700
+		active:text-error-700
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
 	`,
 	[EButtonTypes.LINK]: `
-		text-accent-alt
+		bg-transparent
+		border
+		border-transparent
+		text-secondary-500
+		underline
 
-		hover:text-accent-alt-600
-		active:text-accent-alt-700
-		disabled:text-accent-alt-300
+		hover:bg-secondary-alt-200
+		hover:no-underline
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		active:text-secondary-500
+		disabled:bg-transparent
+		disabled:text-secondary-alt-300
+		disabled:underline
 	`,
+	[EButtonTypes.PRIMARY_BRAND]: `
+		bg-primary-600
+		border
+		border-primary-600
+		shadow-md
+		text-white
+
+		hover:bg-primary-700
+		hover:border-primary-700
+		active:bg-primary-800
+		active:border-primary-800
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.PRIMARY_ACCENT]: `
+		bg-primary-800
+		border
+		border-primary-800
+		shadow-md
+		text-white
+
+		hover:bg-primary-700
+		hover:border-primary-700
+		active:bg-primary-800
+		active:border-primary-800
+		active:text-primary-100
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.PRIMARY_NEUTRAL]: `
+		bg-secondary-500
+		border
+		border-secondary-500
+		shadow-md
+		text-white
+
+		hover:bg-secondary-400
+		hover:border-secondary-400
+		active:bg-secondary-500
+		active:border-secondary-500
+		active:text-secondary-alt-300
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.PRIMARY_DESTRUCTIVE]: `
+		bg-error-500
+		border
+		border-error-500
+		shadow-md
+		text-white
+
+		hover:bg-error-600
+		hover:border-error-600
+		active:bg-error-700
+		active:border-error-700
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.PRIMARY_INVERSE]: `
+		bg-white
+		border
+		border-secondary-500
+		shadow-md
+		text-secondary-500
+
+		hover:border-secondary-400
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		disabled:bg-secondary-alt-700
+		disabled:border-secondary-alt-700
+	`,
+	[EButtonTypes.SECONDARY_BRAND]: `
+		bg-white
+		border
+		border-primary-600
+		shadow-md
+		text-primary-600
+
+		hover:bg-primary-50
+		hover:border-primary-700
+		hover:text-primary-700
+		active:bg-primary-100
+		active:border-primary-700
+		active:text-primary-700
+		disabled:bg-white
+		disabled:border-secondary-alt-300
+		disabled:shadow-none
+		disabled:text-secondary-alt-300
+	`,
+	[EButtonTypes.SECONDARY_ACCENT]: `
+		bg-white
+		border
+		border-primary-800
+		shadow-md
+		text-primary-800
+
+		hover:bg-primary-50
+		hover:border-primary-700
+		hover:text-primary-700
+		active:bg-primary-100
+		active:border-primary-800
+		active:text-primary-800
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.SECONDARY_NEUTRAL]: `
+		bg-white
+		border
+		border-secondary-500
+		shadow-md
+		text-secondary-500
+
+		hover:bg-secondary-alt-200
+		hover:border-secondary-400
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		active:border-secondary-500
+		active:text-secondary-500
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.SECONDARY_DESTRUCTIVE]: `
+		bg-white
+		border
+		border-error-500
+		shadow-md
+		text-error-500
+
+		hover:bg-error-100
+		hover:border-error-600
+		hover:text-error-600
+		active:bg-error-200
+		active:border-error-700
+		active:text-error-700
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.SECONDARY_INVERSE]: `
+		bg-transparent
+		border
+		border-white
+		shadow-md
+		text-white
+
+		hover:bg-secondary-500
+		hover:border-secondary-alt-300
+		hover:text-secondary-alt-300
+		active:bg-secondary-400
+		active:border-white
+		active:text-white
+		disabled:bg-secondary-alt-300
+		disabled:border-transparent
+	`,
+	[EButtonTypes.TERTIARY_BRAND]: `
+		bg-transparent
+		border
+		border-transparent
+		text-primary-600
+		underline
+
+		hover:bg-primary-50
+		hover:no-underline
+		active:bg-primary-100
+		active:text-primary-700
+		disabled:bg-transparent
+		disabled:text-secondary-alt-300
+		disabled:underline
+	`,
+	[EButtonTypes.TERTIARY_ACCENT]: `
+		bg-transparent
+		border
+		border-transparent
+		text-primary-800
+		underline
+
+		hover:bg-primary-50
+		hover:no-underline
+		hover:text-primary-700
+		active:bg-primary-100
+		active:text-primary-800
+		disabled:bg-transparent
+		disabled:text-secondary-alt-300
+		disabled:underline
+	`,
+	[EButtonTypes.TERTIARY_NEUTRAL]: `
+		bg-transparent
+		border
+		border-transparent
+		text-secondary-500
+		underline
+
+		hover:bg-secondary-alt-200
+		hover:no-underline
+		hover:text-secondary-400
+		active:bg-secondary-alt-300
+		active:text-secondary-500
+		disabled:bg-transparent
+		disabled:text-secondary-alt-300
+		disabled:underline
+	`,
+	[EButtonTypes.TERTIARY_DESTRUCTIVE]: `
+		bg-transparent
+		border
+		border-transparent
+		text-error-500
+		underline
+
+		hover:bg-error-100
+		hover:no-underline
+		hover:text-error-600
+		active:bg-error-200
+		active:text-error-700
+		disabled:bg-transparent
+		disabled:text-secondary-alt-300
+		disabled:underline
+	`,
+	[EButtonTypes.TERTIARY_INVERSE]: `
+		bg-transparent
+		border
+		border-transparent
+		text-white
+		underline
+
+		hover:bg-secondary-500
+		hover:no-underline
+		hover:text-secondary-alt-300
+		active:bg-secondary-400
+		active-text-white
+		disabled:bg-transparent
+		disabled:text-secondary-alt-700
+		disabled:underline
+	`,
+};
+
+const isInverseType = (type: EButtonTypes): boolean => {
+	return (
+		type === EButtonTypes.PRIMARY_INVERSE
+		|| type === EButtonTypes.SECONDARY_INVERSE
+		|| type === EButtonTypes.TERTIARY_INVERSE
+	);
+};
+
+const focusColorClasses = {
+	background: (type: EButtonTypes) =>
+		isInverseType(type) ? "focus-visible:before:bg-secondary-500" : "focus-visible:before:bg-white",
+	border: (type: EButtonTypes) =>
+		isInverseType(type) ? "focus-visible:before:border-secondary-alt-400" : "focus-visible:before:border-primary-600"
 };
 
 const sizeClasses = {
@@ -129,7 +382,7 @@ const weightClasses = {
 };
 
 export const UiButton: React.FC<TButtonProps> = ({
-	kind = EButtonTypes.PRIMARY,
+	kind = EButtonTypes.PRIMARY_BRAND,
 	size = EButtonSizes.DEFAULT,
 	fullWidth = false,
 	disabled = false,
@@ -149,8 +402,26 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"whitespace-nowrap",
 				"rounded-xl",
 				"leading-none",
-
-				kindClasses[kind],
+				"flex",
+				"gap-xs",
+				"justify-center",
+				"items-center",
+				"relative",
+				"transition-all",
+				"focus-visible:before:border-2",
+				"focus-visible:before:rounded-2xl",
+				"focus-visible:before:absolute",
+				"focus-visible:before:-translate-x-1/2",
+				"focus-visible:before:-translate-y-1/2",
+				"focus-visible:before:left-1/2",
+				"focus-visible:before:top-1/2",
+				"focus-visible:before:inset-0",
+				"focus-visible:before:z-[-1]",
+				"focus-visible:before:w-[calc(100%+12px)]",
+				"focus-visible:before:h-[calc(100%+10px)]",
+				focusColorClasses.background(kind),
+				focusColorClasses.border(kind),
+				typeClasses[kind],
 				sizeClasses[size],
 				weightClasses[weight],
 				{
