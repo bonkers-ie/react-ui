@@ -1,10 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiNotificationBadge } from "./UiNotificationBadge";
-import { EBadgeOffset } from "./_types";
-import { EColors } from "../../_types/colors";
+import { EBadgeOffset, EBadgeSizes, EBadgeTypes } from "./_types";
 import React from "react";
-import { UiIcon } from "../UiIcon/UiIcon";
-import { ESize } from "../../_types/sizing";
 
 const meta: Meta<typeof UiNotificationBadge> = {
 	title: "Components/UiNotificationBadge",
@@ -17,23 +14,32 @@ const meta: Meta<typeof UiNotificationBadge> = {
 			options: Object.values(EBadgeOffset),
 			description: "The position of the badge relative to its container",
 		},
-		color: {
+		kind: {
 			control: {
 				type: "select",
 			},
-			options: Object.values(EColors),
-			description: "Typography Color",
+			options: Object.values(EBadgeTypes),
+			description: "Color types badges",
 		},
 		children: {
 			control: {
 				type: "text"
 			}
-		}
+		},
+		size: {
+			control: {
+				type: "select",
+			},
+			options: Object.values(EBadgeSizes),
+			description: "Badge sizes",
+		},
+
 	},
 	args: {
 		offset: EBadgeOffset.DEFAULT,
-		color: EColors.ERROR,
-		children: "5"
+		kind: EBadgeTypes.DEFAULT,
+		size: EBadgeSizes.DEFAULT,
+		children: "1"
 	},
 };
 
@@ -44,14 +50,28 @@ type Story = StoryObj<typeof UiNotificationBadge>;
 export const Primary: Story = {
 	render: (args) => (
 		<div className="flex gap-sm">
-			<div className="relative size-xl rounded-full bg-primary">
+			<div className="relative">
 				<UiNotificationBadge { ...args } />
 			</div>
-			<div className="relative size-xxl rounded-sm bg-secondary">
-				<UiNotificationBadge { ...args } children={ "New" } />
+			<div className="relative size-xxl rounded-full bg-primary">
+				<UiNotificationBadge { ...args } />
 			</div>
-			<div className="relative size-xxl rounded-full bg-accent">
-				<UiNotificationBadge { ...args } children={ <UiIcon name={ ["far", "face-smile"] } size={ ESize.XXS } /> } />
+
+		</div>
+	),
+};
+
+export const Variant: Story = {
+
+	render: (args) => (
+		<div className="flex h-xxl w-xxxxl gap-md rounded-sm bg-secondary-alt-600 p-xxs">
+			<div className="relative">
+				<UiNotificationBadge { ...args } size={ EBadgeSizes.DEFAULT }
+					offset={ EBadgeOffset.OFFSET_TOP_LEFT } />
+			</div>
+			<div className="relative">
+				<UiNotificationBadge { ...args } size={ EBadgeSizes.LARGE }
+					offset={ EBadgeOffset.OFFSET_TOP_LEFT }/>
 			</div>
 
 		</div>
