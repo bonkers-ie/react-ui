@@ -8,8 +8,6 @@ type TButtonProps = {
 	size?: EButtonSizes;
 	fullWidth?: boolean;
 	weight?: EButtonWeight;
-	prefix?: React.ReactNode;
-	postfix?: React.ReactNode;
 } & React.HTMLAttributes<HTMLElement> &
 React.ButtonHTMLAttributes<HTMLElement> &
 React.AnchorHTMLAttributes<HTMLElement>
@@ -329,8 +327,6 @@ export const UiButton: React.FC<TButtonProps> = ({
 	children,
 	weight = EButtonWeight.BOLD,
 	onClick,
-	prefix,
-	postfix,
 	...rest
 }) => {
 	return (
@@ -373,9 +369,7 @@ export const UiButton: React.FC<TButtonProps> = ({
 			) }
 			disabled={ disabled }
 		>
-			{ prefix ? prefix  : null }
 			{ children }
-			{ postfix ? postfix  : null }
 		</button>
 	);
 };
