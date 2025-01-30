@@ -9,8 +9,8 @@ type TButtonProps = {
 	fullWidth?: boolean;
 	weight?: EButtonWeight;
 } & React.HTMLAttributes<HTMLElement> &
-React.ButtonHTMLAttributes<HTMLElement> &
-React.AnchorHTMLAttributes<HTMLElement>
+	React.ButtonHTMLAttributes<HTMLElement> &
+	React.AnchorHTMLAttributes<HTMLElement>
 
 const typeClasses = {
 	[EButtonTypes.PRIMARY]: `
@@ -354,6 +354,21 @@ const typeClasses = {
 	`,
 };
 
+const isInverseType = (type: EButtonTypes): boolean => {
+	return (
+		type === EButtonTypes.PRIMARY_INVERSE
+		|| type === EButtonTypes.SECONDARY_INVERSE
+		|| type === EButtonTypes.TERTIARY_INVERSE
+	);
+};
+
+const focusColorClasses = {
+	background: (type: EButtonTypes) =>
+		isInverseType(type) ? "focus-visible:before:bg-secondary-500" : "focus-visible:before:bg-white",
+	border: (type: EButtonTypes) =>
+		isInverseType(type) ? "focus-visible:before:border-secondary-alt-400" : "focus-visible:before:border-primary-600"
+};
+
 const sizeClasses = {
 	[EButtonSizes.SMALL]: "px-md py-xxs",
 	[EButtonSizes.MEDIUM]: "p-sm",
@@ -393,10 +408,8 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"items-center",
 				"relative",
 				"transition-all",
-				"focus-visible:before:bg-white",
 				"focus-visible:before:border-2",
 				"focus-visible:before:rounded-2xl",
-				"focus-visible:before:border-primary-600",
 				"focus-visible:before:absolute",
 				"focus-visible:before:-translate-x-1/2",
 				"focus-visible:before:-translate-y-1/2",
@@ -406,6 +419,8 @@ export const UiButton: React.FC<TButtonProps> = ({
 				"focus-visible:before:z-[-1]",
 				"focus-visible:before:w-[calc(100%+12px)]",
 				"focus-visible:before:h-[calc(100%+10px)]",
+				focusColorClasses.background(kind),
+				focusColorClasses.border(kind),
 				typeClasses[kind],
 				sizeClasses[size],
 				weightClasses[weight],
