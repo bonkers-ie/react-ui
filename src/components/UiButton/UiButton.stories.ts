@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UiButton } from "./UiButton";
-import { EButtonSizes, EButtonTypes, EButtonWeight, EButtonVariants } from "./_types";
+import { EButtonSizes, EButtonTypes, EButtonWeight } from "./_types";
 
 const meta = {
 	title: "Components/UiButton",
@@ -12,13 +12,6 @@ const meta = {
 			},
 			options: Object.values(EButtonTypes),
 			description: "Button Type",
-		},
-		variant: {
-			control: {
-				type: "select"
-			},
-			options: Object.values(EButtonVariants),
-			description: "Button Variant",
 		},
 		size: {
 			control: {
@@ -55,8 +48,7 @@ const meta = {
 	},
 	args: {
 		children: "Button",
-		kind: EButtonTypes.PRIMARY,
-		variant: EButtonVariants.BRAND,
+		kind: EButtonTypes.PRIMARY_BRAND,
 		size: EButtonSizes.DEFAULT,
 		fullWidth: false,
 		disabled: false,

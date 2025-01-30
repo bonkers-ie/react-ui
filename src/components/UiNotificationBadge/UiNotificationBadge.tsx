@@ -59,6 +59,8 @@ const colorClasses = {
 	[EColors.SECONDARY_ALT_700]: "bg-secondary-alt-700",
 
 	[EColors.ERROR]: "bg-error",
+	[EColors.ERROR_100]: "bg-error-100",
+	[EColors.ERROR_200]: "bg-error-200",
 	[EColors.ERROR_300]: "bg-error-300",
 	[EColors.ERROR_400]: "bg-error-400",
 	[EColors.ERROR_500]: "bg-error-500",
